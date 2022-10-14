@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "serve": "vitepress serve docs"
+  },
+  "name": "huyikai-site",
+  "version": "1.0.0",
+  "description": "huyikai site",
+  "main": "index.js",
+  "repository": "https://github.com/huyikai/mySite.git",
+  "author": "huyikai",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "vitepress": "^1.0.0-alpha.19",
+    "vue": "^3.2.40"
+  }
+}

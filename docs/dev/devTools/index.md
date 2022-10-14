@@ -1,0 +1,25 @@
+# 工具
+<ul>
+    <li v-for="(item,index) in list" :key="index" >
+        <a :href='normalizeLink(item.link)'>{{ item.text }}</a>
+    </li>
+</ul>
+
+
+<script setup>
+import { normalizeLink } from 'vitepress/dist/client/theme-default/support/utils.js'
+import { useData,useRouter } from 'vitepress'
+import {  ref } from 'vue'
+
+const templist=useData().theme.value.sidebar
+const list=ref([])
+for(let k in templist){
+    let text=templist[k][0].text
+    if(k.indexOf('devTools')>=0){
+        list.value.push({
+            text,
+            link:k
+        })
+    }
+}
+</script>
