@@ -4,7 +4,7 @@ layout: home
 hero:
   name: Tigger/huyikai
   text: Frontend Engineer
-  tagline: This website is my knowledge base and learning record.
+  tagline: Blog/Knowledge Base/Learning Record.
   image:
     src: /static/logo.svg
     alt: myLogo
