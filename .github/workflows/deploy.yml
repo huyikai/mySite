@@ -26,8 +26,8 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.3
         with:
           BRANCH: gh-pages
-          FOLDER: docs/.vuepress/dist
-          ACCESS_TOKEN: ${{ secrets.DEPLOY }}
+          publish_dir: docs/.vuepress/dist
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       # - name: Deploy
       # 	# 将构建产物 commit 到一个分支上，用于发布静态站点资源
       # 	# https://github.com/peaceiris/actions-gh-pages
