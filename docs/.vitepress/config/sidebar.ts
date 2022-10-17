@@ -8,6 +8,7 @@ import linux from "./sidebar/linux"
 import react from "./sidebar/react"
 import vue from "./sidebar/vue"
 import typescript from "./sidebar/typescript"
+import vscode from "./sidebar/vscode"
 export default {
     ...blog,
     ...css,
@@ -18,5 +19,6 @@ export default {
     '/dev/backend/java/': java,
     '/dev/backend/linux/': linux,
     '/dev/devTools/docker/': docker,
-    '/dev/devTools/git/': git
+    '/dev/devTools/git/': git,
+    '/dev/devTools/vscode/': vscode
 }

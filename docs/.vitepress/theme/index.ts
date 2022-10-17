@@ -3,5 +3,5 @@ import './styles/vars.scss'
 import './styles/style.scss'
 
 export default {
-  ...Theme,
+  ...Theme
 }

@@ -7,6 +7,10 @@ export default [
                 link: '/dev/frontend/nodejs/npm'
             },
             {
+                text: 'Yarn',
+                link: '/dev/frontend/nodejs/yarn'
+            },
+            {
                 text: '介绍',
                 link: '/dev/frontend/nodejs/介绍'
             }

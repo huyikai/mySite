@@ -23,7 +23,8 @@ export default [
             {
                 text: '工具', items: [
                     { text: 'Git', link: '/dev/devTools/git/' },
-                    { text: 'Docker', link: '/dev/devTools/docker/' }
+                    { text: 'Docker', link: '/dev/devTools/docker/' },
+                    { text: 'VSCode', link: '/dev/devTools/vscode/' }
                 ]
             }
         ]
