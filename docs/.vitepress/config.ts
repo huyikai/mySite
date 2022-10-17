@@ -2,10 +2,9 @@ import sidebar from "./config/sidebar"
 import nav from "./config/nav"
 export default {
     title: 'huyikai',
-    base:'/mySite/',
     description: 'huyikaiSite.',
     head: [
-        ['link', { rel: 'icon', href: '/favicon.ico' }]
+        ['link', { rel: 'icon', href: 'favicon.ico' }]
     ],
     themeConfig: {
         siteTitle: 'huyikai',//导航栏左侧名称
