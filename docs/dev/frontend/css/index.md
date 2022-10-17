@@ -2,15 +2,8 @@
 
 记录学习使用CSS期间，遇到的问题以及使用技巧等。
 
-<ul>
-    <li v-for="(item,index) in blogs" :key="index" >
-        <a :href='normalizeLink(item.link)'>{{ item.text }}</a>
-    </li>
-</ul>
-
+<Summary />
 
 <script setup>
-import { normalizeLink } from 'vitepress/dist/client/theme-default/support/utils.js'
-import { useData,useRouter } from 'vitepress'
-const blogs=useData().theme.value.sidebar['/dev/frontend/css/'][0]['items']
+import Summary from '/.vitepress/components/Summary.vue'
 </script>
