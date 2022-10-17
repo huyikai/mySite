@@ -8,7 +8,8 @@ export default [
                     { text: 'Nodejs', link: '/dev/frontend/nodejs/' },
                     { text: 'Vue', link: '/dev/frontend/vue/' },
                     { text: 'React', link: '/dev/frontend/react/' },
-                    { text: 'TypeScript', link: '/dev/frontend/typescript/' }
+                    { text: 'TypeScript', link: '/dev/frontend/typescript/' },
+                    { text: 'Other', link: '/dev/frontend/other/' }
                 ]
             },
             {

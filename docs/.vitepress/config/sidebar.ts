@@ -9,6 +9,7 @@ import react from "./sidebar/react"
 import vue from "./sidebar/vue"
 import typescript from "./sidebar/typescript"
 import vscode from "./sidebar/vscode"
+import frontendOther from "./sidebar/frontendOther"
 export default {
     ...blog,
     ...css,
@@ -16,6 +17,7 @@ export default {
     '/dev/frontend/vue/': vue,
     '/dev/frontend/react/': react,
     '/dev/frontend/typescript/': typescript,
+    '/dev/frontend/other/': frontendOther,
     '/dev/backend/java/': java,
     '/dev/backend/linux/': linux,
     '/dev/devTools/docker/': docker,
