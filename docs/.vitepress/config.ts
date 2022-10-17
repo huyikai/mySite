@@ -2,7 +2,7 @@ import sidebar from "./config/sidebar"
 import nav from "./config/nav"
 export default {
     title: 'huyikai',
-    base:'mySite',
+    base:'/mySite/',
     description: 'huyikaiSite.',
     head: [
         ['link', { rel: 'icon', href: '/favicon.ico' }]
