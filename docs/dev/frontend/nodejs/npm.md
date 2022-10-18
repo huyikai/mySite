@@ -56,12 +56,13 @@ meta:
 - nvm 常用命令
 
   ```sh
-  nvm ls ## 列出所有安装的版本
-  nvm current ## 显示当前的版本
-  nvm install --lts ##选择最新的LTS版本安装
-  nvm install <version> ## 安装指定版本，可模糊安装，如：安装v4.4.0，既可nvm install v4.4.0，又可nvm install 4.4
-  nvm uninstall <version> ## 删除已安装的指定版本
-  nvm use <version> ## 切换使用指定的版本node
+  nvm ls # 列出所有安装的版本
+  nvm current # 显示当前的版本
+  nvm install --lts # 选择最新的LTS版本安装
+  nvm install <version> # 安装指定版本，可模糊安装，如：安装v4.4.0，既可nvm install v4.4.0，又可nvm install 4.4
+  nvm uninstall <version> # 删除已安装的指定版本
+  nvm use <version> # 切换使用指定的版本node
+  nvm alias default <version> # 切换默认版本
   ```
 
 如果报错：zsh: command not found: nvm
