@@ -29,6 +29,11 @@ export default {
         docFooter: {
             prev: 'Pervious',
             next: 'Next'
+        },
+        algolia: {
+            appId: '9WQ2LF2429',
+            apiKey: '7cb06a48ed753a4f3c3914873239b533',
+            indexName: 'blog'
         }
     }
 }
