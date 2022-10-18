@@ -2,7 +2,8 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "serve": "vitepress serve docs"
+    "serve": "vitepress serve docs",
+    "crawler": "bash scripts/crawler.sh"
   },
   "name": "huyikai-site",
   "version": "1.0.0",
