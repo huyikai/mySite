@@ -1,5 +1,7 @@
 # pnpm
 
+[文档](https://pnpm.io/zh/installation)
+
 ## 安装
 
 ### 通过 npm 安装​
@@ -39,4 +41,3 @@ pnpm update xxx/pnpm up  #xxx更新依赖包
 
 pnpm remove xxx #删除依赖包
 ```
-
