@@ -13,6 +13,10 @@ export default [
             {
                 text: '介绍',
                 link: '/dev/frontend/nodejs/介绍'
+            },
+            {
+                text: 'pnpm',
+                link: '/dev/frontend/nodejs/pnpm'
             }
         ]
     }
