@@ -1,5 +1,5 @@
 ---
-title: NPM、NVM
+title: NPM、NVM、NRM
 date: 2022-02-18
 categories:
   - 前端
@@ -12,7 +12,7 @@ meta:
   - name: keywords
     content: nodejs,npm,npm源,npm registry,npm源切换,切换npm源,npm设置,nvm
 ---
-# NPM、NVM
+# NPM、NVM、NRM
 
 ## NPM 源地址查看与切换
 
@@ -31,6 +31,8 @@ meta:
 3. 切换镜像源
 
    ```sh
+   # 默认源
+   npm config set registry https://registry.npmjs.org
    # 淘宝源
    npm config set registry https://registry.npmmirror.com
    # 华为源
@@ -133,5 +135,26 @@ source  ~/.profile
 
 ```sh
 nvm --version
+```
+
+## NRM管理NPM源
+
+```shell
+npm install -g nrm
+```
+
+```shell
+nrm ls
+* npm ---------- https://registry.npmjs.org/
+  yarn --------- https://registry.yarnpkg.com/
+  tencent ------ https://mirrors.cloud.tencent.com/npm/
+  cnpm --------- https://r.cnpmjs.org/
+  taobao ------- https://registry.npmmirror.com/
+  npmMirror ---- https://skimdb.npmjs.com/registry/
+```
+
+```shell
+nrm use cnpm  # switch registry to cnpm
+* Registry has been set to: http://r.cnpmjs.org/
 ```
 
