@@ -6,8 +6,8 @@ Please visit  https://huyikai.xyz
 
 ## 功能
 
-- 搜索（algolia）
-- 评论（gitalk）
+- 搜索 [algolia](https://www.algolia.com)，需自行配置
+- 评论 [gitalk](https://github.com/gitalk/gitalk)，需自行配置
 
 ## 安装
 
