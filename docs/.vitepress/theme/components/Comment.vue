@@ -30,4 +30,9 @@ export default {
     padding-top: 24px;
     margin-top: 24px;
 }
+
+.comment-container :deep(.gt-container .gt-header-textarea) {
+    background-color: #d9d9d9;
+    color: #333;
+}
 </style>
