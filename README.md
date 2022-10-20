@@ -1,3 +1,9 @@
-# My blog/docs website
+# 基于 VitePress 搭建的个人网站
 
-Please visit https://huyikai.xyz
+## 预览
+
+Please visit  https://huyikai.xyz
+
+## 功能
+
+- 搜索（algolia）
