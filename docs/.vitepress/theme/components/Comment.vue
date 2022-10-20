@@ -1,5 +1,7 @@
 <template>
-    <div id="gitalk-container"></div>
+    <div class="comment-container">
+        <div id="gitalk-container"></div>
+    </div>
 </template>
 
 <script>
@@ -22,3 +24,10 @@ export default {
     },
 };
 </script>
+<style scoped>
+.comment-container {
+    border-top: 1px solid rgba(84, 84, 84, 0.48);
+    padding-top: 24px;
+    margin-top: 24px;
+}
+</style>

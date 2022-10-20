@@ -47,6 +47,7 @@ provide('onContentUpdated', onContentUpdated)
           <slot name="doc-footer-before" />
           <VPDocFooter />
           <slot name="doc-after" />
+          <Comment />
         </div>
       </div>
     </div>

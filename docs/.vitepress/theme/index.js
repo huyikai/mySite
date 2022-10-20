@@ -1,5 +1,4 @@
 import DefaultTheme from "../theme-default";
-
 import Comment from './components/Comment.vue'
 const theme = {
     ...DefaultTheme,
