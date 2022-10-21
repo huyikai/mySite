@@ -17,6 +17,9 @@ export default [
             {
                 text: 'pnpm',
                 link: '/dev/frontend/nodejs/pnpm'
+            },{
+                text:'fs-extra',
+                link: '/dev/frontend/nodejs/fs-extra'
             }
         ]
     }
