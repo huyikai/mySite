@@ -12,21 +12,6 @@ hero:
     - theme: brand
       text: About Me
       link: about.md
-    - theme: alt
-      text: Blog
-      link: /blog/
-    - theme: alt
-      text: Dev Docs
-      link: /dev/
-    - theme: alt
-      text: Tools
-      link: /dev/devTools/
-    # - theme: alt
-    #   text: Photos Album
-    #   link: https://500px.com.cn/tigger
-    # - theme: alt
-    #   text: Short Video
-    #   link: 
 features:
   - icon: ⚡️ 
     title: 慎独
@@ -38,3 +23,9 @@ features:
     title: 复盘
     details: 如果你不担心，你就要担心了；如果你担心，你就不必担心
 ---
+
+
+<script setup>
+  import { useData } from 'vitepress';
+  // console.log("useData()",useData().theme.value)
+</script>
