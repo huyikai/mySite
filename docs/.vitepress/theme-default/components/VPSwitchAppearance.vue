@@ -10,7 +10,6 @@ const toggle = typeof localStorage !== 'undefined' ? useAppearance() : () => {}
 
 onMounted(() => {
   checked.value = document.documentElement.classList.contains('dark')
-  toggle()
 })
 
 function useAppearance() {
@@ -30,8 +29,7 @@ function useAppearance() {
   }
 
   function toggle() {
-    // setClass((isDark = !isDark))
-    setClass((isDark = true))
+    setClass((isDark = !isDark))
 
     userPreference = isDark
       ? query.matches ? 'auto' : 'dark'
