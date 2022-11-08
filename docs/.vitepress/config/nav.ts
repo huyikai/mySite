@@ -1,19 +1,3 @@
-export const navBlog = (pages) => {
-    return {
-        text: 'Blog',
-        items: dataParser(pages, 'blog')
-    };
-};
-export const nav = function (pages): Array<{}> {
-    return [
-        {
-            text: 'Blog',
-            items: dataParser(pages, 'blog')
-        },
-        ...dataParser(pages, 'contents')
-    ];
-};
-
 const dataParser = (list: any = [], root: string = '') => {
     let contents: Array<{}> = list.filter(i => i.relativePath.indexOf(`/${root}/`) >= 0);
     function buildNav(contents) {
@@ -81,4 +65,14 @@ const dataParser = (list: any = [], root: string = '') => {
         return rootList;
     }
     return buildNav(contents);
+};
+
+export const nav = function (pages): Array<{}> {
+    return [
+        {
+            text: 'Blog',
+            items: dataParser(pages, 'blog')
+        },
+        ...dataParser(pages, 'contents')
+    ];
 };

@@ -1,5 +1,4 @@
 export const sidebar = (pages) => {
-    let list: any = [];
     let rootNameList: any = [];
     let childrenList: any = [];
     for (let a of pages) {
