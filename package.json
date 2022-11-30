@@ -1,27 +1,29 @@
 {
-  "scripts": {
-    "dev": "vitepress dev docs",
-    "build": "vitepress build docs",
-    "serve": "vitepress serve docs",
-    "crawler": "bash scripts/crawler.sh"
-  },
   "name": "huyikai-site",
   "version": "1.0.0",
-  "description": "huyikai site",
-  "main": "index.js",
-  "repository": "https://github.com/huyikai/mySite.git",
-  "author": "huyikai",
-  "license": "MIT",
   "private": false,
-  "devDependencies": {
-    "fs-extra": "^10.1.0",
-    "globby": "^11.0.1",
-    "gray-matter": "^4.0.2",
-    "vitepress": "^1.0.0-alpha.19",
-    "vue": "^3.2.40"
+  "description": "huyikai site",
+  "repository": "https://github.com/huyikai/mySite.git",
+  "license": "MIT",
+  "author": "huyikai",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "vitepress build docs",
+    "crawler": "bash scripts/crawler.sh",
+    "dev": "vitepress dev docs",
+    "serve": "vitepress serve docs"
   },
   "dependencies": {
     "blueimp-md5": "^2.19.0",
     "gitalk": "^1.8.0"
+  },
+  "devDependencies": {
+    "@vitepress-custom/vitepress-plugin-fetch-docs": "^0.0.4",
+    "@vitepress-custom/vitepress-plugin-nav": "^0.0.6",
+    "@vitepress-custom/vitepress-plugin-sidebar": "^0.0.5",
+    "sass": "^1.56.1",
+    "vitepress": "^1.0.0-alpha.19",
+    "vue": "^3.2.40"
   }
 }

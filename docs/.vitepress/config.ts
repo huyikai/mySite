@@ -1,8 +1,9 @@
-import { pagesData } from './utils/utils'
-import  { sidebar } from "./config/sidebar"
-import { nav } from "./config/nav"
+import navParser from "@vitepress-custom/vitepress-plugin-nav";
+import sidebar from "@vitepress-custom/vitepress-plugin-sidebar";
+import docsData from '@vitepress-custom/vitepress-plugin-fetch-docs';
+
 export default async () => {
-    let pages = await pagesData()
+    let pages = await docsData();
     return {
         title: 'huyikai',
         description: 'huyikaiSite.',
@@ -16,9 +17,12 @@ export default async () => {
             lastUpdated: true,//最后更新时间
             outlineTitle: 'Catalog',//右侧边栏标题
             // 导航栏链接
-            nav: nav(pages),
+            nav: [
+                ...navParser(pages, 'docs'),
+                ...navParser(pages, 'contents'),
+            ],
             // 侧边栏
-            sidebar:sidebar(pages),
+            sidebar: sidebar(pages, 'docs', true),
             // 社交链接
             socialLinks: [
                 { icon: 'github', link: 'https://github.com/huyikai' },
