@@ -22,7 +22,7 @@ export default async () => {
                     text: 'Blog',
                     items: [...navParser(pages, 'blog'),]
                 },
-                ...navParser(pages, 'contents1'),
+                ...navParser(pages, 'contents'),
             ],
             // 侧边栏
             sidebar: sidebar(pages, 'docs', true),
