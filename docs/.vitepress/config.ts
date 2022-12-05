@@ -18,8 +18,11 @@ export default async () => {
             outlineTitle: 'Catalog',//右侧边栏标题
             // 导航栏链接
             nav: [
-                ...navParser(pages, 'docs'),
-                ...navParser(pages, 'contents'),
+                {
+                    text: 'Blog',
+                    items: [...navParser(pages, 'blog'),]
+                },
+                ...navParser(pages, 'contents1'),
             ],
             // 侧边栏
             sidebar: sidebar(pages, 'docs', true),
@@ -50,5 +53,5 @@ export default async () => {
                 indexName: 'blog'
             }
         }
-    }
-}
+    };
+};

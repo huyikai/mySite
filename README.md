@@ -1,4 +1,4 @@
-# 基于 VitePress 搭建的个人网站
+# 基于 [Vitepress-custom](https://github.com/vitepress-custom) 搭建的个人网站
 
 ## 预览
 
