@@ -17,7 +17,7 @@ meta:
 > Typed JavaScript at Any Scale.
 > 添加了类型系统的 JavaScript，适用于任何规模的项目。
 
-以上描述是官网[[1\]](https://ts.xcatliu.com/introduction/what-is-typescript.html#link-1)对于 TypeScript 的定义。
+以上描述是官网对于 TypeScript 的定义。
 
 它强调了 TypeScript 的两个最重要的特性——类型系统、适用于任何规模。
 
@@ -32,9 +32,9 @@ meta:
 - 它没有类型约束，一个变量可能初始化时是字符串，过一会儿又被赋值为数字。
 - 由于隐式类型转换的存在，有的变量的类型很难在运行前就确定。
 - 基于原型的面向对象编程，使得原型上的属性或方法可以在运行时被修改。
-- 函数是 JavaScript 中的一等公民[[2\]](https://ts.xcatliu.com/introduction/what-is-typescript.html#link-2)，可以赋值给变量，也可以当作参数或返回值。
+- 函数是 JavaScript 中的一等公民，可以赋值给变量，也可以当作参数或返回值。
 
-这种灵活性就像一把双刃剑，一方面使得 JavaScript 蓬勃发展，无所不能，从 2013 年开始就一直蝉联最普遍使用的编程语言排行榜冠军[[3\]](https://ts.xcatliu.com/introduction/what-is-typescript.html#link-3)；另一方面也使得它的代码质量参差不齐，维护成本高，运行时错误多。
+这种灵活性就像一把双刃剑，一方面使得 JavaScript 蓬勃发展，无所不能，从 2013 年开始就一直蝉联最普遍使用的编程语言排行榜冠军；另一方面也使得它的代码质量参差不齐，维护成本高，运行时错误多。
 
 而 TypeScript 的类型系统，在很大程度上弥补了 JavaScript 的缺点。
 
@@ -42,7 +42,7 @@ meta:
 
 类型系统按照「类型检查的时机」来分类，可以分为动态类型和静态类型。
 
-动态类型是指在运行时才会进行类型检查，这种语言的类型错误往往会导致运行时错误。JavaScript 是一门解释型语言[[4\]](https://ts.xcatliu.com/introduction/what-is-typescript.html#link-4)，没有编译阶段，所以它是动态类型，以下这段代码在运行时才会报错：
+动态类型是指在运行时才会进行类型检查，这种语言的类型错误往往会导致运行时错误。JavaScript 是一门解释型语言，没有编译阶段，所以它是动态类型，以下这段代码在运行时才会报错：
 
 ```js
 let foo = 1;
@@ -102,9 +102,9 @@ print(str(1) + '1')
 
 > 强/弱是相对的，Python 在处理整型和浮点型相加时，会将整型隐式转换为浮点型，但是这并不影响 Python 是强类型的结论，因为大部分情况下 Python 并不会进行隐式类型转换。相比而言，JavaScript 和 TypeScript 中不管加号两侧是什么类型，都可以通过隐式类型转换计算出一个结果——而不是报错——所以 JavaScript 和 TypeScript 都是弱类型。
 
-> 虽然 TypeScript 不限制加号两侧的类型，但是我们可以借助 TypeScript 提供的类型系统，以及 ESLint 提供的代码检查功能，来限制加号两侧必须同为数字或同为字符串[[5\]](https://ts.xcatliu.com/introduction/what-is-typescript.html#link-5)。这在一定程度上使得 TypeScript 向「强类型」更近一步了——当然，这种限制是可选的。
+> 虽然 TypeScript 不限制加号两侧的类型，但是我们可以借助 TypeScript 提供的类型系统，以及 ESLint 提供的代码检查功能，来限制加号两侧必须同为数字或同为字符串。这在一定程度上使得 TypeScript 向「强类型」更近一步了——当然，这种限制是可选的。
 
-这样的类型系统体现了 TypeScript 的核心设计理念[[6\]](https://ts.xcatliu.com/introduction/what-is-typescript.html#link-6)：在完整保留 JavaScript 运行时行为的基础上，通过引入静态类型系统来提高代码的可维护性，减少可能出现的 bug。
+这样的类型系统体现了 TypeScript 的核心设计理念：在完整保留 JavaScript 运行时行为的基础上，通过引入静态类型系统来提高代码的可维护性，减少可能出现的 bug。
 
 ### 适用于任何规模
 
@@ -114,23 +114,17 @@ TypeScript 非常适用于大型项目——这是显而易见的，类型系统
 
 TypeScript 还可以和 JavaScript 共存。这意味着如果你有一个使用 JavaScript 开发的旧项目，又想使用 TypeScript 的特性，那么你不需要急着把整个项目都迁移到 TypeScript，你可以使用 TypeScript 编写新文件，然后在后续更迭中逐步迁移旧文件。如果一些 JavaScript 文件的迁移成本太高，TypeScript 也提供了一个方案，可以让你在不修改 JavaScript 文件的前提下，编写一个[类型声明文件][]，实现旧项目的渐进式迁移。
 
-事实上，就算你从来没学习过 TypeScript，你也可能已经在不知不觉中使用到了 TypeScript——在 VSCode 编辑器中编写 JavaScript 时，代码补全和接口提示等功能就是通过 TypeScript Language Service 实现的[[7\]](https://ts.xcatliu.com/introduction/what-is-typescript.html#link-7)：
+事实上，就算你从来没学习过 TypeScript，你也可能已经在不知不觉中使用到了 TypeScript——在 VSCode 编辑器中编写 JavaScript 时，代码补全和接口提示等功能就是通过 TypeScript Language Service 实现的.
 
-![what-is-typescript-vscode](https://ts.xcatliu.com/assets/what-is-typescript-vscode.png)
+一些第三方库原生支持了 TypeScript，在使用时就能获得代码补全了，比如 Vue 3.0
 
-一些第三方库原生支持了 TypeScript，在使用时就能获得代码补全了，比如 Vue 3.0[[8\]](https://ts.xcatliu.com/introduction/what-is-typescript.html#link-8)：
-
-![what-is-typescript-vue](https://ts.xcatliu.com/assets/what-is-typescript-vue.png)
-
-有一些第三方库原生不支持 TypeScript，但是可以通过安装社区维护的类型声明库[[9\]](https://ts.xcatliu.com/introduction/what-is-typescript.html#link-9)（比如通过运行 `npm install --save-dev @types/react` 来安装 React 的类型声明库）来获得代码补全能力——不管是在 JavaScript 项目中还是在 TypeScript 中项目中都是支持的：
-
-![what-is-typescript-react](https://ts.xcatliu.com/assets/what-is-typescript-react.png)
+有一些第三方库原生不支持 TypeScript，但是可以通过安装社区维护的类型声明库（比如通过运行 `npm install --save-dev @types/react` 来安装 React 的类型声明库）来获得代码补全能力——不管是在 JavaScript 项目中还是在 TypeScript 中项目中都是支持的
 
 由此可见，TypeScript 的发展已经深入到前端社区的方方面面了，任何规模的项目都或多或少得到了 TypeScript 的支持。
 
 ### 与标准同步发展
 
-TypeScript 的另一个重要的特性就是坚持与 ECMAScript 标准[[10\]](https://ts.xcatliu.com/introduction/what-is-typescript.html#link-10)同步发展。
+TypeScript 的另一个重要的特性就是坚持与 ECMAScript 标准同步发展。
 
 ECMAScript 是 JavaScript 核心语法的标准，自 2015 年起，每年都会发布一个新版本，包含一些新的语法。
 
@@ -144,7 +138,7 @@ ECMAScript 是 JavaScript 核心语法的标准，自 2015 年起，每年都会
 
 一个语法进入到 Stage 3 阶段后，TypeScript 就会实现它。一方面，让我们可以尽早的使用到最新的语法，帮助它进入到下一个阶段；另一方面，处于 Stage 3 阶段的语法已经比较稳定了，基本不会有语法的变更，这使得我们能够放心的使用它。
 
-除了实现 ECMAScript 标准之外，TypeScript 团队也推进了诸多语法提案，比如可选链操作符（`?.`）[[11\]](https://ts.xcatliu.com/introduction/what-is-typescript.html#link-11)、空值合并操作符（`??`）[[12\]](https://ts.xcatliu.com/introduction/what-is-typescript.html#link-12)、Throw 表达式[[13\]](https://ts.xcatliu.com/introduction/what-is-typescript.html#link-13)、正则匹配索引[[14\]](https://ts.xcatliu.com/introduction/what-is-typescript.html#link-14)等。
+除了实现 ECMAScript 标准之外，TypeScript 团队也推进了诸多语法提案，比如可选链操作符（`?.`）、空值合并操作符（`??`）、Throw 表达式、正则匹配索引等。
 
 ## 总结
 
