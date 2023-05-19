@@ -24,6 +24,6 @@
     "@vitepress-custom/vitepress-plugin-sidebar": "^0.0.8",
     "sass": "^1.56.1",
     "vitepress": "^1.0.0-alpha.61",
-    "vue": "^3.2.40"
+    "vue": "^3.2.45"
   }
 }
