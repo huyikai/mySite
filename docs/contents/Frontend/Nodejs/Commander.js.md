@@ -22,7 +22,7 @@ Commander 负责将参数解析为选项和命令参数，为问题显示使用�
 Commander 是严格的，并且会针对无法识别的选项显示错误。
 两种最常用的选项类型是布尔选项，和从参数中获取值的选项。
 
-示例代码：[split.js](./examples/split.js)
+示例代码：[split.js](https://github.com/tj/commander.js/blob/master/examples/split.js)
 
 ```js
 const { program } = require('commander');
@@ -48,7 +48,7 @@ $ node split.js -s / --first a/b/c
 
 这是一个使用子命令并带有帮助描述的更完整的程序。在多命令程序中，每个命令（或命令的独立可执行文件）都有一个操作处理程序。
 
-示例代码：[string-util.js](./examples/string-util.js)
+示例代码：[string-util.js](https://github.com/tj/commander.js/blob/master/examples/string-util.js)
 
 ```js
 const { Command } = require('commander');
@@ -152,7 +152,7 @@ serve --port=80
 
 有两种最常用的选项，一类是 boolean 型选项，选项无需配置参数，另一类选项则可以设置参数（使用尖括号声明在该选项后，如`--expect <value>`）。如果在命令行中不指定具体的选项及参数，则会被定义为`undefined`。
 
-示例代码：[options-common.js](./examples/options-common.js)
+示例代码：[options-common.js](https://github.com/tj/commander.js/blob/master/examples/options-common.js)
 
 ```js
 program
@@ -194,7 +194,7 @@ pizza details:
 
 选项可以设置一个默认值。
 
-示例代码：[options-defaults.js](./examples/options-defaults.js)
+示例代码：[options-defaults.js](https://github.com/tj/commander.js/blob/master/examples/options-defaults.js)
 
 ```js
 program
@@ -218,7 +218,7 @@ cheese: stilton
 
 如果已经定义了`--foo`，那么再定义`--no-foo`并不会改变它本来的默认值。
 
-示例代码：[options-negatable.js](./examples/options-negatable.js)
+示例代码：[options-negatable.js](https://github.com/tj/commander.js/blob/master/examples/options-negatable.js)
 
 ```js
 program
@@ -246,7 +246,7 @@ You ordered a pizza with no sauce and no cheese
 
 选项的参数使用方括号声明表示参数是可选参数（如`--optional [value]`）。该选项在不带参数时可用作 boolean 选项，在带有参数时则从参数中得到值。
 
-示例代码：[options-boolean-or-value.js](./examples/options-boolean-or-value.js)
+示例代码：[options-boolean-or-value.js](https://github.com/tj/commander.js/blob/master/examples/options-boolean-or-value.js)
 
 ```js
 program
@@ -271,13 +271,13 @@ add cheese type mozzarella
 
 带有可选选项参数的选项不是贪婪的，并且会忽略以破折号开头的参数。因此对于`--id -5`，`id`表现为布尔选项，但如果需要，您可以使用组合形式，例如 `--id=-5`。
 
-关于可能有歧义的用例，请见[可变参数的选项](./docs/zh-CN/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E7%9A%84%E9%80%89%E9%A1%B9.md)。
+关于可能有歧义的用例，请见[可变参数的选项](https://github.com/tj/commander.js/blob/master/docs/zh-CN/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E7%9A%84%E9%80%89%E9%A1%B9.md)。
 
 ### 必填选项
 
 通过`.requiredOption()`方法可以设置选项为必填。必填选项要么设有默认值，要么必须在命令行中输入，对应的属性字段在解析时必定会有赋值。该方法其余参数与`.option()`一致。
 
-示例代码：[options-required.js](./examples/options-required.js)
+示例代码：[options-required.js](https://github.com/tj/commander.js/blob/master/examples/options-required.js)
 
 ```js
 program
@@ -295,7 +295,7 @@ error: required option '-c, --cheese <type>' not specified
 
 定义选项时，可以通过使用`...`来设置参数为可变长参数。在命令行中，用户可以输入多个参数，解析后会以数组形式存储在对应属性字段中。在输入下一个选项前（`-`或`--`开头），用户输入的指令均会被视作变长参数。与普通参数一样的是，可以通过`--`标记当前命令的结束。
 
-示例代码：[options-variadic.js](./examples/options-variadic.js)
+示例代码：[options-variadic.js](https://github.com/tj/commander.js/blob/master/examples/options-variadic.js)
 
 ```js
 program
@@ -320,7 +320,7 @@ Options:  { number: [ '1', '2', '3' ], letter: true }
 Remaining arguments:  [ 'operand' ]
 ```
 
-关于可能有歧义的用例，请见[可变参数的选项](./docs/zh-CN/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E7%9A%84%E9%80%89%E9%A1%B9.md)。
+关于可能有歧义的用例，请见[可变参数的选项](https://github.com/tj/commander.js/blob/master/docs/zh-CN/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E7%9A%84%E9%80%89%E9%A1%B9.md)。
 
 ### 版本选项
 
@@ -345,7 +345,7 @@ program.version('0.0.1', '-v, --vers', 'output the current version');
 
 大多数情况下，选项均可通过`.option()`方法添加。但对某些不常见的用例，也可以直接构造`Option`对象，对选项进行更详尽的配置。
 
-示例代码：[options-extra.js](./examples/options-extra.js), [options-env.js](./examples/options-env.js), [options-conflicts.js](./examples/options-conflicts.js), [options-implies.js](./examples/options-implies.js)
+示例代码：[options-extra.js](https://github.com/tj/commander.js/blob/master/examples/options-extra.js), [options-env.js](https://github.com/tj/commander.js/blob/master/examples/options-env.js), [options-conflicts.js](https://github.com/tj/commander.js/blob/master/examples/options-conflicts.js), [options-implies.js](https://github.com/tj/commander.js/blob/master/examples/options-implies.js)
 
 ```js
 program
@@ -389,7 +389,7 @@ error: option '--disable-server' cannot be used with option '-p, --port <number>
 
 可以在自定义函数的后面设置选项参数的默认值或初始值（例如参数用列表暂存时需要设置一个初始空列表)。
 
-示例代码：[options-custom-processing.js](./examples/options-custom-processing.js)
+示例代码：[options-custom-processing.js](https://github.com/tj/commander.js/blob/master/examples/options-custom-processing.js)
 
 ```js
 function myParseInt(value, dummyPrevious) {
@@ -446,7 +446,7 @@ $ custom --list x,y,z
 
 ## 命令
 
-通过`.command()`或`.addCommand()`可以配置命令，有两种实现方式：为命令绑定处理函数，或者将命令单独写成一个可执行文件（详述见后文）。子命令支持嵌套（[示例代码](./examples/nestedCommands.js)）。
+通过`.command()`或`.addCommand()`可以配置命令，有两种实现方式：为命令绑定处理函数，或者将命令单独写成一个可执行文件（详述见后文）。子命令支持嵌套（[示例代码](https://github.com/tj/commander.js/blob/master/examples/nestedCommands.js)）。
 
 `.command()`的第一个参数为命令名称。命令参数可以跟在名称后面，也可以用`.argument()`单独指定。参数可为必选的（尖括号表示）、可选的（方括号表示）或变长参数（点号表示，如果使用，只能是最后一个参数）。
 
@@ -476,7 +476,7 @@ program
   .addCommand(build.makeBuildCommand());
 ```
 
-使用`.command()`和`addCommand()`来指定选项的相关设置。当设置`hidden: true`时，该命令不会打印在帮助信息里。当设置`isDefault: true`时，若没有指定其他子命令，则会默认执行这个命令（[样例](./examples/defaultCommand.js)）。
+使用`.command()`和`addCommand()`来指定选项的相关设置。当设置`hidden: true`时，该命令不会打印在帮助信息里。当设置`isDefault: true`时，若没有指定其他子命令，则会默认执行这个命令（[样例](https://github.com/tj/commander.js/blob/master/examples/defaultCommand.js)）。
 
 ### 命令参数
 
@@ -484,7 +484,7 @@ program
 
 在`Command`对象上使用`.argument()`来按次序指定命令参数。该方法接受参数名称和参数描述。参数可为必选的（尖括号表示，例如`<required>`）或可选的（方括号表示，例如`[optional]`）。
 
-示例代码：[argument.js](./examples/argument.js)
+示例代码：[argument.js](https://github.com/tj/commander.js/blob/master/examples/argument.js)
 
 ```js
 program
@@ -522,7 +522,7 @@ program
 
 有少数附加功能可以直接构造`Argument`对象，对参数进行更详尽的配置。
 
-示例代码：[arguments-extra.js](./examples/arguments-extra.js)
+示例代码：[arguments-extra.js](https://github.com/tj/commander.js/blob/master/examples/arguments-extra.js)
 
 ```js
 program
@@ -538,7 +538,7 @@ program
 
 可以在自定义函数的后面设置命令参数的默认值或初始值。
 
-示例代码：[arguments-custom-processing.js](./examples/arguments-custom-processing.js)
+示例代码：[arguments-custom-processing.js](https://github.com/tj/commander.js/blob/master/examples/arguments-custom-processing.js)
 
 ```js
 program
@@ -555,7 +555,7 @@ program
 
 命令处理函数的参数，为该命令声明的所有参数，除此之外还会附加两个额外参数：一个是解析出的选项，另一个则是该命令对象自身。
 
-示例代码：[thank.js](./examples/thank.js)
+示例代码：[thank.js](https://github.com/tj/commander.js/blob/master/examples/thank.js)
 
 ```js
 program
@@ -573,7 +573,7 @@ program
 
 如果你愿意，你可以跳过为处理函数声明参数直接使用 command。 `this` 关键字设置为运行命令，可以在函数表达式中使用（但不能从箭头函数中使用）。
 
-示例代码：[action-this.js](./examples/action-this.js)
+示例代码：[action-this.js](https://github.com/tj/commander.js/blob/master/examples/action-this.js)
 
 ```js
 program
@@ -610,7 +610,7 @@ Commander 会尝试在入口脚本的目录中搜索名称组合为 `command-sub
 
 你可以在可执行文件里处理（子）命令的选项，而不必在顶层声明它们。
 
-示例代码：[pm](./examples/pm)
+示例代码：[pm](https://github.com/tj/commander.js/blob/master/examples/pm)
 
 ```js
 program
@@ -630,7 +630,7 @@ program.parse(process.argv);
 
 可以在命令的生命周期事件上设置回调函数。
 
-示例代码：[hook.js](./examples/hook.js)
+示例代码：[hook.js](https://github.com/tj/commander.js/blob/master/examples/hook.js)
 
 ```js
 program
@@ -657,10 +657,10 @@ program
 
 帮助信息是 Commander 基于你的程序自动生成的，默认的帮助选项是`-h,--help`。
 
-示例代码：[pizza](./examples/pizza)
+示例代码：[pizza](https://github.com/tj/commander.js/blob/master/examples/pizza)
 
 ```console
-$ node ./examples/pizza --help
+$ node https://github.com/tj/commander.js/blob/master/examples/pizza --help
 Usage: pizza [options]
 
 An application for pizza ordering
@@ -686,7 +686,7 @@ shell spawn --help
 
 可以添加额外的帮助信息，与内建的帮助一同展示。
 
-示例代码：[custom-help](./examples/custom-help)
+示例代码：[custom-help](https://github.com/tj/commander.js/blob/master/examples/custom-help)
 
 ```js
 program
@@ -834,7 +834,7 @@ program.addHelpCommand('assist [command]', 'show assistance');
 
 可以得到可视化的参数列表，选项列表，以及子命令列表。列表的每个元素都具有`_term_`和`_description_`属性，并可以对其进行格式化。关于其使用方式，请参考`.formatHelp()`。
 
-示例代码：[configure-help.js](./examples/configure-help.js)
+示例代码：[configure-help.js](https://github.com/tj/commander.js/blob/master/examples/configure-help.js)
 
 ```js
 program.configureHelp({
@@ -879,7 +879,7 @@ program.parse(['-f', 'filename'], { from: 'user' });
 
 默认情况下，程序的选项在子命令前后均可被识别。如要只允许选项出现在子命令之前，可以使用`.enablePositionalOptions()`。这样可以在命令和子命令中使用意义不同的同名选项。
 
-示例代码：[positional-options.js](./examples/positional-options.js)
+示例代码：[positional-options.js](https://github.com/tj/commander.js/blob/master/examples/positional-options.js)
 
 当启用了带顺序的选项解析，以下程序中，`-b`选项在第一行中将被解析为程序顶层的选项，而在第二行中则被解析为子命令的选项：
 
@@ -891,7 +891,7 @@ program subcommand -b
 默认情况下，选项在命令参数前后均可被识别。如要使选项仅在命令参数前被识别，可以使用`.passThroughOptions()`。这样可以把参数和跟随的选项传递给另一程序，而无需使用`--`来终止选项解析。
 如要在子命令中使用此功能，必须首先启用带顺序的选项解析。
 
-示例代码：[pass-through-options.js](./examples/pass-through-options.js)
+示例代码：[pass-through-options.js](https://github.com/tj/commander.js/blob/master/examples/pass-through-options.js)
 
 当启用此功能时，以下程序中，`--port=80`在第一行中会被解析为程序的选项，而在第二行中则会被解析为一个命令参数：
 
@@ -937,7 +937,7 @@ const { createCommand } = require('commander');
 const program = createCommand();
 ```
 
-`createCommand`同时也是`Command`对象的一个方法，可以创建一个新的命令（而非子命令），使用`.command()`创建子命令时内部会调用该方法，具体使用方式可参考 [custom-command-class.js](./examples/custom-command-class.js)。
+`createCommand`同时也是`Command`对象的一个方法，可以创建一个新的命令（而非子命令），使用`.command()`创建子命令时内部会调用该方法，具体使用方式可参考 [custom-command-class.js](https://github.com/tj/commander.js/blob/master/examples/custom-command-class.js)。
 
 ### Node 选项，如 --harmony
 
@@ -984,7 +984,7 @@ try {
 Commander 默认用作命令行应用，其输出写入 stdout 和 stderr。
 对于其他应用类型，这一行为可以修改。并且可以修改错误信息的展示方式。
 
-示例代码：[configure-output.js](./examples/configure-output.js)
+示例代码：[configure-output.js](https://github.com/tj/commander.js/blob/master/examples/configure-output.js)
 
 ```js
 function errorColor(str) {
@@ -1006,8 +1006,8 @@ program
 
 请参考关于如下话题的其他文档：
 
-- [不再推荐使用的功能](./docs/zh-CN/%E4%B8%8D%E5%86%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8%E7%9A%84%E5%8A%9F%E8%83%BD.md)。这些功能仍受到支持，以保证向后兼容。
-- [可变参数的选项](./docs/zh-CN/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E7%9A%84%E9%80%89%E9%A1%B9.md)
+- [不再推荐使用的功能](https://github.com/tj/commander.js/blob/master/docs/zh-CN/%E4%B8%8D%E5%86%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8%E7%9A%84%E5%8A%9F%E8%83%BD.md)。这些功能仍受到支持，以保证向后兼容。
+- [可变参数的选项](https://github.com/tj/commander.js/blob/master/docs/zh-CN/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E7%9A%84%E9%80%89%E9%A1%B9.md)
 
 ## 支持
 
