@@ -50,3 +50,7 @@ python manage.py startapp appname
 ```shell
 pip install -r requirements.txt
 ```
+
+Django 的源文件在哪里？
+如果你不知道 Django 源码在你系统的哪个位置，运行以下命令：
+python -c "import django; print(django.__path__)"
