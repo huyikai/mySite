@@ -174,6 +174,7 @@ myEmitter.emit('message', 'welcome to nodejs');
 
 下面代码指定，一旦服务器连通，只调用一次的回调函数。
 
+```
 {% highlight javascript %}
 
 server.once('connection', function (stream) {
@@ -181,6 +182,7 @@ server.once('connection', function (stream) {
 });
 
 {% endhighlight %}
+```
 
 该方法返回一个EventEmitter对象，因此可以链式加载监听函数。
 
