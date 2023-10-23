@@ -252,11 +252,13 @@ emitter.removeAllListeners("firstConnection");
 
 如果不带参数，则表示移除所有事件的所有回调函数。
 
+```
 {% highlight javascript %}
 
 emitter.removeAllListeners();
 
 {% endhighlight %}
+```
 
 ### listeners()
 
