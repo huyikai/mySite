@@ -41,10 +41,8 @@ export default async () => {
         next: 'Next'
       },
       // 搜索
-      algolia: {
-        appId: '9WQ2LF2429',
-        apiKey: '7cb06a48ed753a4f3c3914873239b533',
-        indexName: 'blog'
+      search: {
+        provider: 'local' // 离线搜索
       }
     }
   };
