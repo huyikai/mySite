@@ -166,6 +166,11 @@
     "@algolia/logger-common" "4.17.0"
     "@algolia/requester-common" "4.17.0"
 
+"@axolo/tree-array@^0.2.1":
+  "integrity" "sha512-TTK1x2hYxgc9e7shKWaVXHqiPpJecnfopFfiEawlz7btvn6IpjZ3QLqV510gZLcwligN2kPUHi8PI2zR54h+kA=="
+  "resolved" "https://registry.npmmirror.com/@axolo/tree-array/-/tree-array-0.2.1.tgz"
+  "version" "0.2.1"
+
 "@babel/parser@^7.16.4":
   "integrity" "sha512-qpVT7gtuOLjWeDTKLkJ6sryqLliBaFpAtGeqw5cs5giLldvh+Ch0plqnUMKoVAUS6ZEueQQiZV+p5pxtPitEsA=="
   "resolved" "https://repo.huaweicloud.com/repository/npm/@babel/parser/-/parser-7.19.4.tgz"
@@ -198,6 +203,18 @@
   "integrity" "sha512-5D48jM3tW27h1qjaD9UNRuN+4v0zvksqZSPZqeSWggfMlsVdAhH3pwSfQIFJwcs9QJ9BRibPS4ViZgs3d2wsCA=="
   "resolved" "https://registry.npmjs.org/@esbuild/darwin-x64/-/darwin-x64-0.17.12.tgz"
   "version" "0.17.12"
+
+"@huyikai/vitepress-helper@^0.0.3":
+  "integrity" "sha512-XSYsIMx815SNYsDPQYwR5uOw1FqjzafpH0ST6kiPMpijrPkyumKgOkRgDipPRbn0gl6SsRBOKKmfYdRfrkSLDg=="
+  "resolved" "https://registry.npmmirror.com/@huyikai/vitepress-helper/-/vitepress-helper-0.0.3.tgz"
+  "version" "0.0.3"
+  dependencies:
+    "@axolo/tree-array" "^0.2.1"
+    "fs-extra" "^10.1.0"
+    "globby" "^11.0.1"
+    "gray-matter" "^4.0.2"
+    "tree-conver" "^0.0.95"
+    "uuid" "^9.0.1"
 
 "@nodelib/fs.scandir@2.1.5":
   "integrity" "sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g=="
@@ -1397,6 +1414,11 @@
   dependencies:
     "is-number" "^7.0.0"
 
+"tree-conver@^0.0.95":
+  "integrity" "sha512-wTkmh1ybVkcsBlzEY+nJcrVkf51lwpE1nxRSpaCSC861+4WZ2z4slRqW1NQ7WvPyKmx07jdFvG2mf2tIbAQBKg=="
+  "resolved" "https://registry.npmmirror.com/tree-conver/-/tree-conver-0.0.95.tgz"
+  "version" "0.0.95"
+
 "ua-parser-js@^0.7.30":
   "integrity" "sha512-veRf7dawaj9xaWEu9HoTVn5Pggtc/qj+kqTOFvNiN1l0YdxwC1kvel57UCjThjGa3BHBihE8/UJAHI+uQHmd/g=="
   "resolved" "https://registry.npmjs.org/ua-parser-js/-/ua-parser-js-0.7.35.tgz"
@@ -1416,6 +1438,11 @@
   "integrity" "sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ=="
   "resolved" "https://registry.npmjs.org/universalify/-/universalify-2.0.0.tgz"
   "version" "2.0.0"
+
+"uuid@^9.0.1":
+  "integrity" "sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA=="
+  "resolved" "https://registry.npmmirror.com/uuid/-/uuid-9.0.1.tgz"
+  "version" "9.0.1"
 
 "vite@^4.0.0", "vite@^4.2.1":
   "integrity" "sha512-7MKhqdy0ISo4wnvwtqZkjke6XN4taqQ2TBaTccLIpOKv7Vp2h4Y+NpmWCnGDeSvvn45KxvWgGyb0MkHvY1vgbg=="
