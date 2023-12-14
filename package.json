@@ -19,7 +19,7 @@
     "gitalk": "^1.8.0"
   },
   "devDependencies": {
-    "@huyikai/vitepress-helper": "^0.0.6",
+    "@huyikai/vitepress-helper": "^0.0.8",
     "vitepress": "^1.0.0-rc.31",
     "vue": "^3.3.9"
   }
