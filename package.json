@@ -12,7 +12,8 @@
     "build": "vitepress build docs",
     "crawler": "bash scripts/crawler.sh",
     "dev": "vitepress dev docs",
-    "serve": "vitepress serve docs"
+    "serve": "vitepress serve docs",
+    "commit": "git-cz"
   },
   "dependencies": {
     "blueimp-md5": "^2.19.0",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@huyikai/vitepress-helper": "latest",
+    "git-cz": "^4.9.0",
     "vitepress": "^1.0.0-rc.31",
     "vue": "^3.3.9"
   }
