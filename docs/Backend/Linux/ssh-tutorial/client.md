@@ -434,7 +434,7 @@ $ ssh -X server.example.com
 
 `-2`参数指定使用 SSH 2 协议。
 
-```ssh
+```sh
 $ ssh -2 server.example.com
 ```
 

@@ -315,7 +315,7 @@ loader的参数
 
 可以在配置文件里面，指定同一类文件，都使用某个loader。
 
-```javascirpt
+```javascript
 module.exports = {
   module: {
     loaders: [
@@ -339,7 +339,7 @@ module.exports = {
 
 现在只要直接加载`.css`文件就可以了。
 
-```javscript
+```javascript
 require('./css/style.css');
 ```
 

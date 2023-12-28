@@ -11,9 +11,9 @@ hero:
   actions:
     - theme: brand
       text: About Me
-      link: about.md
+      link: About Me.md
 features:
-  - icon: ⚡️ 
+  - icon: ⚡️
     title: 慎独
     details: 任何平庸，往往都从习以为常开始
   - icon: 🏃
@@ -23,7 +23,6 @@ features:
     title: 复盘
     details: 如果你不担心，你就要担心了；如果你担心，你就不必担心
 ---
-
 
 <script setup>
   import { useData } from 'vitepress';

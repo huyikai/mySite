@@ -10,12 +10,12 @@ const vitepressConfig = {
   title: 'huyikai',
   description: 'huyikaiSite.',
   head: [
-    ['link', { rel: 'icon', href: 'favicon.ico' }] //浏览器标签icon
+    ['link', { rel: 'icon', href: 'favicon.ico' }]
   ],
   themeConfig: {
-    siteTitle: 'huyikai', //导航栏左侧名称
-    logo: '/static/avatar128.png', //导航栏左侧头像
-    // 社交链接
+    siteTitle: 'huyikai',
+    logo: '/static/avatar128.png',
+    outline: 'deep',
     socialLinks: [
       { icon: 'github', link: 'https://github.com/huyikai' },
       {
@@ -28,7 +28,7 @@ const vitepressConfig = {
     // 网站页脚
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2019-present huyikai'
+      copyright: 'Copyright 2019-PRESENT © Tigger Hu'
     }
   }
 };

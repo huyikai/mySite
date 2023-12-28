@@ -117,7 +117,7 @@ const DeleteAccount = () => (
 
 组件可以是一个类，也可以是返回一个类的函数。
 
-```javascritpt
+```javascript
 const Button = ({ children, color }) => ({
   type: 'button',
   props: {
