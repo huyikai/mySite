@@ -1,3 +1,5 @@
 # Tree-Conver
 
-[主页](https://huyikai.github.io/tree-conver)
+Tree-Conver is a tool that can convert between flat node arrays and tree arrays.
+
+[HomePage](https://huyikai.github.io/tree-conver)

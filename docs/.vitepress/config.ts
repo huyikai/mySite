@@ -9,9 +9,8 @@ const vitepressHelperConfig = {
 const vitepressConfig = {
   title: 'huyikai',
   description: 'huyikaiSite.',
-  head: [
-    ['link', { rel: 'icon', href: 'favicon.ico' }]
-  ],
+  head: [['link', { rel: 'icon', href: 'favicon.ico' }]],
+  lastUpdated: true,
   themeConfig: {
     siteTitle: 'huyikai',
     logo: '/static/avatar128.png',
@@ -30,6 +29,9 @@ const vitepressConfig = {
       message: 'Released under the MIT License.',
       copyright: 'Copyright 2019-PRESENT © Tigger Hu'
     }
+  },
+  sitemap: {
+    hostname: 'https://huyikai.xyz'
   }
 };
 export default async () => {

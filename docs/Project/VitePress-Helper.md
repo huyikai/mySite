@@ -1,3 +1,5 @@
 # Vitepress-Helper
 
-[主页](https://huyikai.github.io/vitepress-helper)
+This tool is designed to help you to use VitePress more easily.
+
+[HomePage](https://huyikai.github.io/vitepress-helper)

@@ -1,3 +1,5 @@
 # Local-CMS
 
-[主页](https://huyikai.github.io/local-cms)
+A Management System for Managing Local markdown Files.
+
+[HomePage](https://huyikai.github.io/local-cms)
