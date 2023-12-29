@@ -1,16 +1,3 @@
----
-title: iOS 底部安全区适配
-date: 2022-02-11
-categories:
-  - 前端
-tags:
-  - css
-meta:
-  - name: description
-    content: iOS 底部安全区适配
-  - name: keywords
-    content: css,底部安全区,底部安全区适配
----
 # iOS 底部安全区适配
 
 - **问题：** iOS 全面屏设备的屏幕底部有黑色横条显示，会对 UI 造成遮挡，影响事件点击和视觉效果。Android 没有横条，不受影响。
