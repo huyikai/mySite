@@ -1,3 +1,3 @@
-# Tigger Hu's Site
+# huyikai Site
 
 Please visit <https://huyikai.xyz>
