@@ -1,28 +1,19 @@
 {
-  "name": "huyikai-site",
-  "version": "1.0.0",
-  "private": false,
-  "description": "huyikai site",
-  "repository": "https://github.com/huyikai/mySite.git",
-  "license": "MIT",
-  "author": "huyikai",
+  "name": "astro-starlight",
   "type": "module",
-  "main": "index.js",
+  "version": "0.0.1",
   "scripts": {
-    "build": "vitepress build docs",
-    "crawler": "bash scripts/crawler.sh",
-    "dev": "vitepress dev docs",
-    "serve": "vitepress serve docs",
-    "commit": "git-cz"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "blueimp-md5": "^2.19.0",
-    "gitalk": "^1.8.0"
-  },
-  "devDependencies": {
-    "@huyikai/vitepress-helper": "latest",
-    "git-cz": "^4.9.0",
-    "vitepress": "^1.0.0-rc.33",
-    "vue": "^3.3.9"
+    "@astrojs/starlight": "^0.21.2",
+    "astro": "^4.3.5",
+    "sharp": "^0.32.5",
+    "@astrojs/check": "^0.5.10",
+    "typescript": "^5.4.3"
   }
 }
