@@ -1,25 +1,30 @@
 ---
-import Social from './Social.astro';
+
 ---
 
 <style>
   footer {
+    width: 100%;
     display: flex;
-    gap: 1rem;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
     margin-top: 2rem;
   }
 </style>
 <footer>
-  <Social
-    platform="twitter"
-    username="astrodotbuild"
-  />
-  <Social
-    platform="github"
-    username="withastro"
-  />
-  <Social
-    platform="youtube"
-    username="astrodotbuild"
-  />
+  <div style="display: flex; gap: 1rem; align-items: center;">
+    <a href="https://astro.build"
+      ><img
+        src="https://astro.badg.es/v2/built-with-astro/tiny.svg"
+        alt="Built with Astro"
+        width="120"
+        height="20"
+        style="display: block;"
+      /></a
+    >
+    <p style="font-size: 0.8rem">© 2024 huyikai</p>
+    <a href={`https://www.twitter.com/hyk_tiger`}>Twitter</a>
+    <a href={`https://www.github.com/huyikai`}>Github</a>
+  </div>
 </footer>

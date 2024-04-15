@@ -1,14 +1,34 @@
 ---
+const { pathname } = Astro.url;
 
+// 定义一个辅助函数来判断是否应该添加 'active' 类
+function isActive(href: string) {
+  // 对于根路径特殊处理，确保只有当确实在首页时才激活
+  if (href === '/' && pathname === '/') return true;
+  // 对于非根路径，如果当前路径以给定的 href 开头，则认为是激活状态
+  return href !== '/' && pathname.startsWith(href);
+}
+
+// 导航项数据，可以根据需要添加更多
+const navItems = [
+  { href: '/', text: 'Home' },
+  { href: '/about/', text: 'About' },
+  { href: '/post/', text: 'Post' },
+  { href: '/stack/', text: 'Stack' },
+  { href: '/project/', text: 'Project' },
+  { href: '/tags/', text: 'Tag' }
+];
 ---
 
-<div
-  transition:animate="fade"
-  class="nav-links"
->
-  <a href="/">首页</a>
-  <a href="/about/">关于</a>
-  <a href="/blog/">博客</a>
-  <a href="/stack/">stack</a>
-  <a href="/tags/">标签</a>
+<div class="nav-links">
+  {
+    navItems.map((item) => (
+      <a
+        href={item.href}
+        class={isActive(item.href) ? 'active' : ''}
+      >
+        {item.text}
+      </a>
+    ))
+  }
 </div>

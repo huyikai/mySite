@@ -14,6 +14,7 @@ NVM 是一个在同一台设备管理多个 `Node.js` 版本的工具
 ## 安装
 
 ```sh
+# src/content/docs/example.mdx
 brew install nvm
 ```
 

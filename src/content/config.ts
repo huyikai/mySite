@@ -12,7 +12,7 @@ const schema = z.object({
   }),
   tags: z.array(z.string())
 });
-const blogCollection = defineCollection({
+const postCollection = defineCollection({
   type: 'content',
   schema
 });
@@ -20,8 +20,13 @@ const stackCollection = defineCollection({
   type: 'content',
   schema
 });
+const projectCollection = defineCollection({
+  type: 'content',
+  schema
+});
 // 导出一个单独的 `collections` 对象来注册你的集合
 export const collections = {
-  blogs: blogCollection,
-  stack: stackCollection
+  post: postCollection,
+  stack: stackCollection,
+  project: projectCollection
 };

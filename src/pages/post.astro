@@ -2,17 +2,17 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import BlogPost from '@components/BlogPost.astro';
-const allPosts = await getCollection('stack');
-const pageTitle = 'stack!!';
+const allPosts = await getCollection('post');
+const pageTitle = 'my post';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <p>stack</p>
+  <p>在这里，我将分享我的学习 Astro 的之旅。</p>
   <ul>
     {
       allPosts.map((post: any) => (
         <BlogPost
-          url={`/stack/${post.slug}/`}
+          url={`/post/${post.slug}/`}
           title={post.data.title}
         />
       ))
