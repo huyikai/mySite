@@ -1,27 +1,27 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
 const pageTitle = '首页';
+import { Image } from 'astro:assets';
+import avatar from '@assets/avatar.jpg';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <div class="home">
+    <Image
+      style={{ borderRadius: '50%', margin: '2.4rem 0 1rem 0' }}
+      src={avatar}
+      alt="avatar"
+      width="200"
+      height="200"
+    />
     <h2>👋 Hey, My name is huyikai.</h2>
     <p>Software Engineer / Photographer / Designer</p>
-
-    <h2>Skills</h2>
-
-    <p style="text-align: center;">
-      <a href="https://github.com/huyikai">
-        <img
-          src="https://skillicons.dev/icons?i=html,css,sass,less,tailwind,js,ts,vite,vue,pinia,vitest,react,pnpm,flutter,astro,python,django,nodejs,npm,express,git,docker,nginx,md,figma,ps,ai,pr,discord,tensorflow"
-        />
-      </a>
-    </p>
   </div>
 </BaseLayout>
 
 <style>
   .home {
+    height: 100%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
