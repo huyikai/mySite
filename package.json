@@ -1,5 +1,5 @@
 {
-  "name": "astro-starlight",
+  "name": "huyikai-site",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -7,13 +7,18 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "commit": "git-cz"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.21.2",
-    "astro": "^4.3.5",
-    "sharp": "^0.32.5",
     "@astrojs/check": "^0.5.10",
+    "@astrojs/preact": "^3.1.1",
+    "@astrojs/rss": "^4.0.5",
+    "astro": "^4.5.12",
+    "preact": "^10.20.1",
     "typescript": "^5.4.3"
+  },
+  "devDependencies": {
+    "git-cz": "^4.9.0"
   }
 }
