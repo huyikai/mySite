@@ -1,6 +1,6 @@
 ---
 const { pathname } = Astro.url;
-
+import { fade } from 'astro:transitions';
 // 定义一个辅助函数来判断是否应该添加 'active' 类
 function isActive(href: string) {
   // 对于根路径特殊处理，确保只有当确实在首页时才激活
@@ -24,6 +24,7 @@ const navItems = [
   {
     navItems.map((item) => (
       <a
+        transition:animate={fade({ duration: '0.2s' })}
         href={item.href}
         class={isActive(item.href) ? 'active' : ''}
       >

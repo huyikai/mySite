@@ -2,7 +2,8 @@
 import { ViewTransitions } from 'astro:transitions';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
-import '../styles/global.css';
+import '@styles/global.css';
+import { fade } from 'astro:transitions';
 const { pageTitle } = Astro.props;
 ---
 
@@ -11,8 +12,7 @@ const { pageTitle } = Astro.props;
     <meta charset="utf-8" />
     <link
       rel="icon"
-      type="image/svg+xml"
-      href="/favicon.svg"
+      href="/favicon.ico"
     />
     <meta
       name="viewport"
@@ -23,12 +23,17 @@ const { pageTitle } = Astro.props;
       content={Astro.generator}
     />
     <title>{pageTitle}</title>
+
     <ViewTransitions />
   </head>
   <body>
     <Header />
     <main style="width:100%;max-width: 80ch;margin: 0 auto;flex: 1;">
-      {pageTitle !== '首页' && <h1 transition:animate="slide">{pageTitle}</h1>}
+      {
+        pageTitle !== '首页' && (
+          <h1 transition:animate={fade({ duration: '0.6s' })}>{pageTitle}</h1>
+        )
+      }
       <slot />
     </main>
     <Footer />

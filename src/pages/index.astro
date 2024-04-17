@@ -3,18 +3,20 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 const pageTitle = '首页';
 import { Image } from 'astro:assets';
 import avatar from '@assets/avatar.jpg';
+import { fade } from 'astro:transitions';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <div class="home">
     <Image
-      style={{ borderRadius: '50%', margin: '2.4rem 0 1rem 0' }}
+      transition:animate={fade({ duration: '1s' })}
+      class="avatar"
       src={avatar}
       alt="avatar"
       width="200"
       height="200"
     />
-    <h2>👋 Hey, My name is huyikai.</h2>
+    <h2>huyikai</h2>
     <p>Software Engineer / Photographer / Designer</p>
   </div>
 </BaseLayout>
@@ -26,5 +28,10 @@ import avatar from '@assets/avatar.jpg';
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+  }
+  .avatar {
+    border-radius: 50%;
+    margin: 2.4rem 0 1rem 0;
+    box-shadow: 0 0 16px rgba(119,157,168, 0.8);
   }
 </style>

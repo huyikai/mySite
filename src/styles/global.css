@@ -1,11 +1,18 @@
+:root {
+  --primary: #ebb761;
+  --background: #f1f5f9;
+  --background-dark: #0d1116;
+  --family: sans-serif;
+}
+
 html,
 body {
   height: 100%;
   margin: 0;
 }
 html {
-  background-color: #f1f5f9;
-  font-family: sans-serif;
+  background-color: var(--background);
+  font-family: var(--family);
 }
 
 body {
@@ -38,14 +45,14 @@ h1 {
   width: 40px;
   height: 5px;
   margin-bottom: 10px;
-  background-color: #ff9776;
+  background-color: var(--primary);
 }
 
 .nav-links {
   width: 100%;
   top: 5rem;
   left: 48px;
-  background-color: #ff9776;
+  background-color: var(--primary);
   display: none;
   margin: 0;
 }
@@ -74,7 +81,7 @@ h1 {
   margin: 0 auto;
   width: 40%;
   height: 5px;
-  background-color: #ebb761;
+  background-color: var(--primary);
   z-index: -1;
 }
 
@@ -114,7 +121,7 @@ h1 {
 }
 
 html.dark {
-  background-color: #0d1116;
+  background-color: var(--background-dark);
   color: #fff;
 }
 
