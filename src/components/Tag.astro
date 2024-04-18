@@ -1,31 +1,14 @@
 ---
-const { title, url } = Astro.props;
 ---
 
-{
-  url ? (
-    <a
-      class="tag"
-      href={url}
-    >
-      {title}
-    </a>
-  ) : (
-    <div class="tag">{title}</div>
-  )
-}
+<div class="tags-container">
+  <slot />
+</div>
 
 <style>
-  .tag {
-    /* border-radius: 0.2em; */
-    padding: 0.2em 0.6em;
-    font-size: 0.8em;
-    background-color: var(--primary);
-    color: #fff;
-    text-decoration: none;
-  }
-  html.dark .tag {
-    background-color: var(--primary);
-    color: #fff;
+  .tags-container {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0.5rem;
   }
 </style>

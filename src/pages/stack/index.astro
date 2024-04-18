@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Post from '@components/Post.astro';
+import TagItem from '@components/TagItem.astro';
+const allStacks = await getCollection('stack');
+
+const tags = [...new Set(allStacks.map((post) => post.data.tags).flat())];
+const category = [
+  ...new Set(allStacks.map((post) => post.slug.split('/')[0]).flat())
+];
+const pageTitle = 'Technology Stack';
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  {allStacks.map((post) => JSON.stringify(post.slug))}
+  {category.map((cat) => JSON.stringify(cat))}
+  <h2>Category</h2>
+  <div class="tags">
+    {
+      category.map((cate) => (
+        <>
+          <TagItem
+            title={cate}
+            url={`/stack/category/${cate}`}
+          />
+        </>
+      ))
+    }
+  </div>
+  <p>record the knowledge of technology Stack</p>
+  <div class="tags">
+    {
+      tags.map((tag) => (
+        <TagItem
+          title={tag}
+          url={`/tags/${tag}`}
+        />
+      ))
+    }
+  </div>
+  <ul>
+    {
+      allStacks.map((stack: any) => (
+        <Post
+          url={`/stack/category${stack.slug}/`}
+          title={stack.data.title}
+        />
+      ))
+    }
+  </ul>
+</BaseLayout>
+
+<style>
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+</style>
