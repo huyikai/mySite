@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import { fade } from 'astro:transitions';
 import Tag from '@components/Tag.astro';
+import TagItem from '@components/TagItem.astro';
 const { frontmatter } = Astro.props;
 ---
 
@@ -24,16 +25,16 @@ const { frontmatter } = Astro.props;
     )
   }
 
-  <div class="tags">
+  <Tag>
     {
       frontmatter.tags.map((tag: any) => (
-        <Tag
+        <TagItem
           title={tag}
           url={`/tags/${tag}`}
         />
       ))
     }
-  </div>
+  </Tag>
 
   <slot />
 </BaseLayout>
