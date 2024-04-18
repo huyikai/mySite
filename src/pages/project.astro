@@ -1,19 +1,19 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
-import BlogPost from '@components/BlogPost.astro';
-const allPosts = await getCollection('project');
-const pageTitle = 'project!!';
+import Post from '@components/Post.astro';
+const allProjects = await getCollection('project');
+const pageTitle = 'Project';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <p>project</p>
+  <p>Open source projects</p>
   <ul>
     {
-      allPosts.map((post: any) => (
-        <BlogPost
-          url={`/project/${post.slug}/`}
-          title={post.data.title}
+      allProjects.map((project: any) => (
+        <Post
+          url={`/project/${project.slug}/`}
+          title={project.data.title}
         />
       ))
     }

@@ -4,6 +4,7 @@ const pageTitle = '首页';
 import { Image } from 'astro:assets';
 import avatar from '@assets/avatar.jpg';
 import { fade } from 'astro:transitions';
+import Tag from '@components/Tag.astro';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -17,7 +18,12 @@ import { fade } from 'astro:transitions';
       height="200"
     />
     <h2>huyikai</h2>
-    <p>Software Engineer / Photographer / Designer</p>
+
+    <div style="display: flex; gap: 0.5rem;">
+      <Tag title="Software Engineer" />
+      <Tag title="Photographer" />
+      <Tag title="Designer" />
+    </div>
   </div>
 </BaseLayout>
 
@@ -32,6 +38,6 @@ import { fade } from 'astro:transitions';
   .avatar {
     border-radius: 50%;
     margin: 2.4rem 0 1rem 0;
-    box-shadow: 0 0 16px rgba(119,157,168, 0.8);
+    box-shadow: 0 0 16px rgba(119, 157, 168, 0.8);
   }
 </style>
