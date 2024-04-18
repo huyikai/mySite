@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
-import Tag from '@components/Tag.astro';
+import TagItem from '@components/TagItem.astro';
 const allPosts = await getCollection('stack');
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 const pageTitle = '标签索引-Tag Index';
@@ -11,7 +11,7 @@ const pageTitle = '标签索引-Tag Index';
   <div class="tags">
     {
       tags.map((tag) => (
-        <Tag
+        <TagItem
           title={tag}
           url={`/tags/${tag}`}
         />

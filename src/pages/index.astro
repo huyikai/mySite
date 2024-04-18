@@ -4,7 +4,7 @@ const pageTitle = '首页';
 import { Image } from 'astro:assets';
 import avatar from '@assets/avatar.jpg';
 import { fade } from 'astro:transitions';
-import Tag from '@components/Tag.astro';
+import TagItem from '@components/TagItem.astro';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -20,9 +20,9 @@ import Tag from '@components/Tag.astro';
     <h2>huyikai</h2>
 
     <div style="display: flex; gap: 0.5rem;">
-      <Tag title="Software Engineer" />
-      <Tag title="Photographer" />
-      <Tag title="Designer" />
+      <TagItem title="Software Engineer" />
+      <TagItem title="Photographer" />
+      <TagItem title="Designer" />
     </div>
   </div>
 </BaseLayout>
