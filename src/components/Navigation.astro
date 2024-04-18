@@ -33,3 +33,51 @@ const navItems = [
     ))
   }
 </div>
+
+<style>
+  .nav-links {
+    display: none;
+  }
+
+  @media screen and (min-width: 636px) {
+    .nav-links {
+      height: 50px;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      position: static;
+      background: none;
+      gap: 1.8rem;
+    }
+
+    .nav-links a {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      font-size: 1rem;
+      color: #333;
+      text-transform: uppercase;
+    }
+    html.dark .nav-links a {
+      color: #ddd;
+    }
+    .nav-links .active {
+      font-weight: bold;
+      font-size: 1.4rem;
+      position: relative;
+    }
+
+    .nav-links .active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 50%;
+      height: 5px;
+      background-color: var(--primary);
+      z-index: -1;
+    }
+  }
+</style>

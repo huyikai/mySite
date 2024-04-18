@@ -45,7 +45,6 @@ html.dark a {
 }
 
 /* 导航样式 */
-/* 导航样式 */
 .hamburger {
   padding-right: 20px;
   cursor: pointer;
@@ -57,43 +56,6 @@ html.dark a {
   height: 5px;
   margin-bottom: 10px;
   background-color: var(--primary);
-}
-
-.nav-links {
-  width: 100%;
-  top: 5rem;
-  left: 48px;
-  background-color: var(--primary);
-  display: none;
-  margin: 0;
-}
-
-.nav-links a {
-  display: block;
-  text-align: center;
-  padding: 10px 0;
-  text-decoration: none;
-  font-size: 1rem;
-  color: #333;
-  text-transform: uppercase;
-}
-.nav-links .active {
-  font-weight: bold;
-  font-size: 1.5rem;
-  position: relative;
-}
-
-.nav-links .active::after {
-  content: '';
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  width: 40%;
-  height: 5px;
-  background-color: var(--primary);
-  z-index: -1;
 }
 
 .expanded {
@@ -112,20 +74,7 @@ html.dark a {
     align-items: center;
     gap: 10px;
   }
-  .nav-links {
-    /* margin-left: 5em; */
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    position: static;
-    width: auto;
-    background: none;
-  }
 
-  .nav-links a {
-    display: inline-block;
-    padding: 15px 20px;
-  }
   .hamburger {
     display: none;
   }
@@ -134,10 +83,6 @@ html.dark a {
 html.dark {
   background-color: var(--background-dark);
   color: var(--color-dark);
-}
-
-html.dark .nav-links a {
-  color: #ddd;
 }
 
 footer a {
