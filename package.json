@@ -15,10 +15,10 @@
     "@astrojs/rss": "^4.0.5",
     "astro": "^4.5.12",
     "astro-expressive-code": "^0.34.1",
-    "preact": "^10.20.1",
     "typescript": "^5.4.3"
   },
   "devDependencies": {
-    "git-cz": "^4.9.0"
+    "git-cz": "^4.9.0",
+    "sharp": "^0.33.3"
   }
 }
