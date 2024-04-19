@@ -5,6 +5,7 @@ import { Image } from 'astro:assets';
 import avatar from '@assets/avatar.jpg';
 import { fade } from 'astro:transitions';
 import TagItem from '@components/TagItem.astro';
+import Tag from '@components/Tag.astro';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -19,11 +20,11 @@ import TagItem from '@components/TagItem.astro';
     />
     <h2>huyikai</h2>
 
-    <div style="display: flex; gap: 0.5rem;">
+    <Tag>
       <TagItem title="Software Engineer" />
       <TagItem title="Photographer" />
       <TagItem title="Designer" />
-    </div>
+    </Tag>
   </div>
 </BaseLayout>
 

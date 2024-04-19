@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
-import Post from '@components/Post.astro';
 import TagItem from '@components/TagItem.astro';
+import Tag from '@components/Tag.astro';
 const allStacks = await getCollection('stack');
 
 const tags = [...new Set(allStacks.map((post) => post.data.tags).flat())];
@@ -13,23 +13,20 @@ const pageTitle = 'Technology Stack';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  {allStacks.map((post) => JSON.stringify(post.slug))}
-  {category.map((cat) => JSON.stringify(cat))}
+  <p>record the knowledge of technology Stack</p>
   <h2>Category</h2>
-  <div class="tags">
+  <Tag>
     {
       category.map((cate) => (
-        <>
-          <TagItem
-            title={cate}
-            url={`/stack/category/${cate}`}
-          />
-        </>
+        <TagItem
+          title={cate}
+          url={`/stack/category/${cate}`}
+        />
       ))
     }
-  </div>
-  <p>record the knowledge of technology Stack</p>
-  <div class="tags">
+  </Tag>
+  <h2>Tags</h2>
+  <Tag>
     {
       tags.map((tag) => (
         <TagItem
@@ -38,23 +35,5 @@ const pageTitle = 'Technology Stack';
         />
       ))
     }
-  </div>
-  <ul>
-    {
-      allStacks.map((stack: any) => (
-        <Post
-          url={`/stack/category${stack.slug}/`}
-          title={stack.data.title}
-        />
-      ))
-    }
-  </ul>
+  </Tag>
 </BaseLayout>
-
-<style>
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-</style>
