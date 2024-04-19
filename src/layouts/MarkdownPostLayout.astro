@@ -10,9 +10,13 @@ const { frontmatter } = Astro.props;
   <p transition:animate={fade({ duration: '1s' })}>
     <em>{frontmatter.description}</em>
   </p>
-  <p class="date">{frontmatter.pubDate.toString().slice(0, 10)}</p>
+  {
+    frontmatter.pubDate && (
+      <p class="date">{frontmatter.pubDate.toString().slice(0, 10)}</p>
+    )
+  }
   <p class="author">
-    <a href="/about/"><em>{frontmatter.author}</em></a>
+    Author: <a href="/about/"><em>{frontmatter.author}</em></a>
   </p>
 
   {
@@ -25,16 +29,18 @@ const { frontmatter } = Astro.props;
     )
   }
 
-  <Tag>
-    {
-      frontmatter.tags.map((tag: any) => (
-        <TagItem
-          title={tag}
-          url={`/tags/${tag}`}
-        />
-      ))
-    }
-  </Tag>
+  {
+    frontmatter.tags && (
+      <Tag>
+        {frontmatter.tags.map((tag: any) => (
+          <TagItem
+            title={tag}
+            url={`/tags/${tag}`}
+          />
+        ))}
+      </Tag>
+    )
+  }
 
   <slot />
 </BaseLayout>

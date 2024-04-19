@@ -3,14 +3,16 @@ import { defineCollection, z } from 'astro:content';
 // 为每一个集合定义一个 `type` 和 `schema`
 const schema = z.object({
   title: z.string(),
-  pubDate: z.date(),
+  pubDate: z.date().optional(),
   description: z.string(),
   author: z.string(),
-  image: z.object({
-    url: z.string(),
-    alt: z.string()
-  }).optional(),
-  tags: z.array(z.string())
+  image: z
+    .object({
+      url: z.string(),
+      alt: z.string()
+    })
+    .optional(),
+  tags: z.array(z.string()).optional()
 });
 const postCollection = defineCollection({
   type: 'content',

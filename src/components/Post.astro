@@ -2,4 +2,11 @@
 const { title, url } = Astro.props;
 ---
 
-<li><a href={url}>{title}</a></li>
+<li><a class="post-title" href={url}>{title}</a></li>
+
+
+<style>
+.post-title{
+    text-decoration: none;
+}
+</style>
