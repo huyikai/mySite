@@ -3,7 +3,7 @@ title: 'NRM'
 pubDate: 2022-07-01
 description: 'NRM'
 author: 'huyikai'
-tags: ['NRM']
+tags: ['nodejs', 'package', 'NRM']
 ---
 
 `nrm` 是一个用来管理 `npm` 的镜像源。它可以帮助你快速地切换 `npm` 的镜像源，以提高包的下载速度。

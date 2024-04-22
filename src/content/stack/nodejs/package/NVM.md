@@ -3,7 +3,7 @@ title: 'NVM'
 pubDate: 2022-07-01
 description: 'NVM'
 author: 'huyikai'
-tags: ['NVM']
+tags: ['nodejs', 'package', 'NVM']
 ---
 
 NVM 是一个在同一台设备管理多个 `Node.js` 版本的工具
