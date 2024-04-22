@@ -1,6 +1,14 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 const pageTitle = 'About Me';
+import Imgs from '@components/Imgs.astro';
+import ski1 from '@assets/personal/ski1.jpg';
+import ski2 from '@assets/personal/ski2.jpg';
+// import ski3 from '@assets/personal/ski3.jpg';
+import marathon1 from '@assets/personal/marathon1.jpg';
+// import marathon2 from '@assets/personal/marathon2.jpg';
+
+const imgs = [marathon1, ski1, ski2];
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -19,7 +27,7 @@ const pageTitle = 'About Me';
       <b>Coding</b>
       <p>
         In my spare time, I do some open source projects, such as contributing
-        to astro. This allows me to learn a lot and help others. 
+        to astro. This allows me to learn a lot and help others.
       </p>
     </li>
     <li>
@@ -106,6 +114,9 @@ const pageTitle = 'About Me';
       </p>
     </li>
   </ul>
+
+  <h2>Images</h2>
+  <Imgs imgs={imgs} />
 
   <h2>Contact</h2>
   <p>

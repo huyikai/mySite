@@ -1,14 +1,15 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import { fade } from 'astro:transitions';
+import Imgs from '@components/Imgs.astro';
 const pageTitle = 'My Album';
-import { Image } from 'astro:assets';
+
 import animal1 from '@assets/album/animal1.jpg';
 import turtle from '@assets/album/turtle.jpg';
 import bird2 from '@assets/album/bird2.jpg';
 import scenery1 from '@assets/album/scenery1.jpg';
 import scenery2 from '@assets/album/scenery2.jpg';
 import harbor from '@assets/album/harbor.jpg';
+
 const animal = [animal1, turtle, bird2];
 const scenery = [scenery1, scenery2, harbor];
 ---
@@ -23,66 +24,13 @@ const scenery = [scenery1, scenery2, harbor];
   </ul>
 
   <p>
-    Tips: The following pictures are already for sale, please do not use them for commercial purposes to avoid unnecessary copyright issues.
+    Tips: The following pictures are already for sale, please do not use them
+    for commercial purposes to avoid unnecessary copyright issues.
   </p>
 
   <h2>Animal</h2>
-  <div class="imgs">
-    {
-      animal.map((item) => (
-        <div
-          class="img-container"
-          transition:animate={fade({ duration: '1s' })}
-        >
-          <Image
-            class="img"
-            src={item}
-            alt="animal"
-          />
-        </div>
-      ))
-    }
-  </div>
+  <Imgs imgs={animal} />
+
   <h2>Scenery</h2>
-  <div class="imgs">
-    {
-      scenery.map((item) => (
-        <div
-          class="img-container"
-          transition:animate={fade({ duration: '1s' })}
-        >
-          <Image
-            class="img"
-            src={item}
-            alt="scenery"
-          />
-        </div>
-      ))
-    }
-  </div>
+  <Imgs imgs={scenery} />
 </BaseLayout>
-<style>
-  .imgs {
-    display: flex;
-    flex-flow: row wrap;
-  }
-  .img-container {
-    margin: 0.2rem;
-    width: calc(100% / 3 - 0.4rem);
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
-  .img {
-    display: block;
-    width: 100%;
-    height: auto;
-    background: #f0f0f0;
-  }
-  .img:hover {
-    transition: 0.5s ease-in-out all;
-    transform: scale(1.05);
-  }
-</style>
