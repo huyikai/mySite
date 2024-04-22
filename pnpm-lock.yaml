@@ -28,6 +28,9 @@ devDependencies:
   '@iconify-json/mdi':
     specifier: ^1.1.66
     version: 1.1.66
+  '@iconify-json/ic':
+    specifier: ^1.1.17
+    version: 1.1.17
   git-cz:
     specifier: ^4.9.0
     version: 4.9.0
@@ -869,6 +872,12 @@ packages:
     resolution: {integrity: sha512-V0NI56S5vsYUCMEoEXbpiACcVDgEbteBeeBS4RthV2bltDLkOvMfTRr2xHfO8zNLtjcYyu90nXR/ans8RZit1w==}
     dependencies:
       '@expressive-code/core': 0.34.1
+    dev: false
+
+  /@iconify-json/ic@1.1.17:
+    resolution: {integrity: sha512-EvAjZzVESmN36zlyefylePUNaU2BQ3eRKVZ6KQSQ2bG01ppoZaiFZRri74VTyvp5Mlv2yn68ux1fgCoT+etGmA==}
+    dependencies:
+      '@iconify/types': 2.0.0
     dev: false
 
   /@iconify-json/mdi@1.1.66:
