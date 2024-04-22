@@ -1,0 +1,61 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const socialList = [
+  {
+    name: 'github',
+    link: 'https://www.github.com/huyikai',
+    icon: 'mdi:github'
+  },
+  {
+    name: 'twitter',
+    link: 'https://www.twitter.com/hyk_tiger',
+    icon: 'mdi:twitter'
+  },
+  {
+    name: 'email',
+    link: 'hyk_tiger@foxmail.com',
+    icon: 'mdi:email'
+  },
+  {
+    name: 'wechat',
+    link: 'huyikai',
+    icon: 'mdi:wechat'
+  }
+];
+---
+
+<div class="social-list">
+  {
+    socialList.map((item) =>
+      item.link.includes('https') ? (
+        <a
+          href={item.link}
+          target="_blank"
+        >
+          <Icon
+            name={item.icon}
+            size={24}
+          />
+        </a>
+      ) : (
+        <a
+          href="#"
+          onclick={`navigator.clipboard.writeText('${item.link}').then(() => alert('copyed!')).catch(() => alert('Copying failed. Please copy manually.')); return false;`}
+        >
+          <Icon
+            name={item.icon}
+            size={24}
+          />
+        </a>
+      )
+    )
+  }
+</div>
+
+<style>
+  .social-list {
+    display: flex;
+    gap: 10px;
+  }
+</style>

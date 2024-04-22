@@ -44,6 +44,15 @@ html.dark a {
   color: var(--primary);
 }
 
+[data-icon] {
+  color: var(--color);
+  fill: var(--color);
+}
+html.dark [data-icon] {
+  color: var(--color-dark);
+  fill: var(--color-dark);
+}
+
 .author a {
   color: #333;
 }

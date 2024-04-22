@@ -1,30 +1,36 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-const pageTitle = '首页';
+const pageTitle = 'Home';
 import { Image } from 'astro:assets';
 import avatar from '@assets/avatar.jpg';
-import { fade } from 'astro:transitions';
+import { slide, fade } from 'astro:transitions';
 import TagItem from '@components/TagItem.astro';
 import Tag from '@components/Tag.astro';
+import Social from '@components/Social.astro';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <div class="home">
+    <div
+      class="infomation"
+      transition:animate={fade({ duration: '1.6s' })}
+    >
+      <h1 class="name">Hi there, my name is huyikai</h1>
+      <Tag>
+        <TagItem title="Software Engineer" />
+        <TagItem title="Photographer" />
+        <TagItem title="Designer" />
+      </Tag>
+      <Social />
+    </div>
     <Image
-      transition:animate={fade({ duration: '1s' })}
+      transition:animate={slide({ duration: '0.8s' })}
       class="avatar"
       src={avatar}
       alt="avatar"
-      width="200"
-      height="200"
+      width="240"
+      height="240"
     />
-    <h2>huyikai</h2>
-
-    <Tag>
-      <TagItem title="Software Engineer" />
-      <TagItem title="Photographer" />
-      <TagItem title="Designer" />
-    </Tag>
   </div>
 </BaseLayout>
 
@@ -32,9 +38,19 @@ import Tag from '@components/Tag.astro';
   .home {
     height: 100%;
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
+    gap: 2rem;
+    .infomation{
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 1rem;
+    }
+  }
+  .name {
+    font-size: 3.6rem;
+    line-height: 4.2rem;
   }
   .avatar {
     border-radius: 50%;
