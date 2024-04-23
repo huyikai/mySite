@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
 const pageTitle = 'About Me';
 import Imgs from '@components/Imgs.astro';
 import ski1 from '@assets/personal/ski1.jpg';
@@ -17,8 +18,12 @@ const imgs = [marathon1, ski1, ski2];
   <p>I am currently a full-time software development engineer.</p>
 
   <h2>Skills</h2>
-  <img
+
+  <Image
     src="https://skillicons.dev/icons?i=html,css,sass,less,tailwind,js,ts,vite,vue,pinia,vitest,react,pnpm,flutter,astro,python,django,nodejs,npm,express,git,docker,nginx,md,figma,ps,ai,pr,discord,tensorflow"
+    alt="skills"
+    inferSize
+    loading="eager"
   />
 
   <h2>Hobbies</h2>
@@ -26,9 +31,15 @@ const imgs = [marathon1, ski1, ski2];
     <li>
       <b>Coding</b>
       <p>
-        coding is a creative and challenging process. I can create things I want through coding,
-        and also help others solve their problems. When ideas become reality, it gives me a sense of achievement and fills me with anticipation during the programming process. This is also one of the reasons why I became a software engineer.
-        In my spare time, I do some open source projects. This allows me to learn a lot and help others. Even received some unexpected rewards, such as prizes for the popularity of my articles in forums, and awards for contributing to the astro community, among others. It makes me more motivated to continue.
+        coding is a creative and challenging process. I can create things I want
+        through coding, and also help others solve their problems. When ideas
+        become reality, it gives me a sense of achievement and fills me with
+        anticipation during the programming process. This is also one of the
+        reasons why I became a software engineer. In my spare time, I do some
+        open source projects. This allows me to learn a lot and help others.
+        Even received some unexpected rewards, such as prizes for the popularity
+        of my articles in forums, and awards for contributing to the astro
+        community, among others. It makes me more motivated to continue.
       </p>
     </li>
     <li>

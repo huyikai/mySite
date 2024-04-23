@@ -26,6 +26,7 @@ const navItems = [
       <a
         transition:animate={fade({ duration: '0.1s' })}
         href={item.href}
+        title={item.text}
         class={isActive(item.href) ? 'active' : ''}
       >
         {item.text}

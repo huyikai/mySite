@@ -1,5 +1,6 @@
 ---
 import Social from '@components/Social.astro';
+import { Image } from 'astro:assets';
 ---
 
 <style>
@@ -14,15 +15,13 @@ import Social from '@components/Social.astro';
 </style>
 <footer>
   <div style="display: flex; gap: 1rem; align-items: center;">
-    <a href="https://astro.build"
-      ><img
-        src="https://astro.badg.es/v2/built-with-astro/tiny.svg"
-        alt="Built with Astro"
-        width="120"
-        height="20"
-        style="display: block;"
-      /></a
-    >
+    <Image
+      src="https://astro.badg.es/v2/built-with-astro/tiny.svg"
+      alt="Built with Astro"
+      inferSize
+      style="display: block;"
+      loading="eager"
+    />
     <p style="font-size: 0.8rem">© 2024 huyikai</p>
     <Social />
   </div>

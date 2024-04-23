@@ -35,24 +35,29 @@ const socialList = [
     socialList.map((item) =>
       item.link.includes('https') ? (
         <a
+          class="item"
           href={item.link}
           target="_blank"
+          title={item.name}
         >
           <Icon
+            title={item.name}
             name={item.icon}
             size={size}
           />
         </a>
       ) : (
-        <a
-          href="#"
+        <div
+          aria-label={item.name}
+          class="item"
           onclick={`navigator.clipboard.writeText('${item.link}').then(() => alert('copyed!')).catch(() => alert('Copying failed. Please copy manually.')); return false;`}
         >
           <Icon
+            title={item.name}
             name={item.icon}
             size={size}
           />
-        </a>
+        </div>
       )
     )
   }
@@ -62,5 +67,9 @@ const socialList = [
   .social-list {
     display: flex;
     gap: 10px;
+    .item {
+      cursor: pointer;
+      display: block;
+    }
   }
 </style>
