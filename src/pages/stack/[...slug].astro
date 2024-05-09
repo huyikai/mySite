@@ -23,3 +23,12 @@ const { Content } = await entry.render();
 <MarkdownPostLayout frontmatter={entry.data}>
   <Content />
 </MarkdownPostLayout>
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const images = document.querySelectorAll('img');
+    images.forEach((img) => {
+      img.style.width = '100%';
+      img.style.height = 'auto';
+    });
+  });
+</script>
