@@ -218,8 +218,6 @@ const Index: React.FC<any> = () => {
 export default Index;
 ```
 
-
-
 ## 4. useReducer
 
 功能类似于 `redux`，与 redux 最大的不同点在于它是单个组件的状态管理，组件通讯还是要通过 props。简单地说，useReducer 相当于是 useState 的升级版，用来处理复杂的 state 变化。
@@ -386,8 +384,6 @@ const usePow = (list: number[]) => {
 };
 ```
 
-
-
 ## 6. useCallback
 
 与 useMemo 极其类似，甚至可以说一模一样，唯一不同的点在于，useMemo 返回的是值，而 useCallback 返回的是函数。
@@ -409,7 +405,7 @@ const resfn = useCallback(fn, deps)
 
 **基础用法：**
 
-```
+``` ts
 import { useState, useCallback, memo } from "react";
 import { Button } from "antd";
 
