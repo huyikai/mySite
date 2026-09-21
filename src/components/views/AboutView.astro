@@ -1,0 +1,260 @@
+---
+import { Image } from 'astro:assets';
+import { default as ui } from '../../i18n/ui';
+import type { Locale } from '../../i18n/utils';
+import ski2 from '@assets/personal/ski2.jpg';
+import marathon1 from '@assets/personal/marathon1.jpg';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = ui[locale];
+
+const ai = {
+  zh: [
+    { label: t.about.ai.daily, items: 'AI 结对编程，代码评审，重构与测试' },
+    { label: t.about.ai.visual, items: '图像生成与处理，界面设计的快速探索' },
+    { label: t.about.ai.content, items: '三语写作与翻译，这个网站就是例子' }
+  ],
+  en: [
+    { label: t.about.ai.daily, items: 'AI pair programming, code review, refactoring and testing' },
+    { label: t.about.ai.visual, items: 'Image generation and editing, rapid UI exploration' },
+    { label: t.about.ai.content, items: 'Trilingual writing and translation. This site is one example' }
+  ],
+  ja: [
+    { label: t.about.ai.daily, items: 'AI ペアプログラミング、コードレビュー、リファクタリングとテスト' },
+    { label: t.about.ai.visual, items: '画像生成・編集、UI デザインの高速な試行' },
+    { label: t.about.ai.content, items: '三言語での執筆と翻訳。このサイトもその一例' }
+  ]
+}[locale];
+
+const life = {
+  zh: [
+    { title: '跑步', note: '受《强风吹拂》感染开始跑步，半马破 1:30 后就去跑全马。', stat: '半马 PB 1:50 · 周跑量 20km' },
+    { title: '篮球', note: '从小相伴的主项。天赋决定上限，努力决定下限。' },
+    { title: '滑雪', note: '和妻子一起学的。想去北海道和瑞士的雪场。' },
+    { title: '飞盘', note: '偶然入坑。在这项规则里，个人英雄主义不可能发生。' },
+    { title: '摄影', note: '从记录生活，到表达自我。' },
+    { title: '旅行', note: '去看不同的世界，也吃不同的菜。' }
+  ],
+  en: [
+    { title: 'Running', note: 'Started after watching Run with the Wind. A full marathon once the half goes under 1:30.', stat: 'Half PB 1:50 · 20km weekly' },
+    { title: 'Basketball', note: 'My main sport since childhood. Talent sets the ceiling, effort sets the floor.' },
+    { title: 'Skiing', note: 'Learned it with my wife. Hokkaido and Switzerland are next.' },
+    { title: 'Frisbee', note: 'Fell into it by chance. The rules leave no room for solo heroics.' },
+    { title: 'Photography', note: 'From recording life to expressing it.' },
+    { title: 'Travel', note: 'Different worlds, different tables.' }
+  ],
+  ja: [
+    { title: 'ランニング', note: 'アニメ『風が強く吹いている』で走り始めた。ハーフ 1:30 を切ったらフルに挑戦する。', stat: 'ハーフ PB 1:50 · 週 20km' },
+    { title: 'バスケットボール', note: '子供の頃からのメインスポーツ。才能は上限を、努力は下限を決める。' },
+    { title: 'スキー', note: '妻と一緒に始めた。北海道とスイスのゲレンデが次の目標。' },
+    { title: 'フリスビー', note: 'きっかけは偶然。この競技では個人プレーは成立しない。' },
+    { title: 'フォトグラフィー', note: '暮らしの記録から、表現へ。' },
+    { title: '旅行', note: '違う世界を見て、違う料理を食べる。' }
+  ]
+}[locale];
+
+const contacts = [
+  { label: 'Email', value: 'hyk_tiger@foxmail.com', href: 'mailto:hyk_tiger@foxmail.com' },
+  { label: 'GitHub', value: 'github.com/huyikai', href: 'https://github.com/huyikai' },
+  { label: 'X / Twitter', value: '@HykTiger', href: 'https://x.com/HykTiger' },
+  { label: 'WeChat', value: 'huyikai' }
+];
+---
+
+<div class="container page">
+  <header class="page-head">
+    <h1>{t.about.title}</h1>
+    <p class="lead">{t.about.intro}</p>
+  </header>
+
+  <div class="life-photos">
+    <Image src={ski2} alt="skiing" widths={[420, 760]} sizes="(max-width: 768px) 92vw, 32vw" loading="lazy" />
+    <Image src={marathon1} alt="marathon" widths={[420, 760]} sizes="(max-width: 768px) 92vw, 32vw" loading="lazy" />
+  </div>
+
+  <section>
+    <h2 class="block-title">{t.about.aiTitle}</h2>
+    <p class="ai-lead">{t.about.aiLead}</p>
+    <div class="ai-groups">
+      {ai.map((group) => (
+        <div class="ai-group">
+          <p class="mono group-label">{group.label}</p>
+          <p class="group-items">{group.items}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <h2 class="block-title">{t.about.lifeTitle}</h2>
+    <div class="life-grid">
+      {life.map((item) => (
+        <article class="life-card">
+          <h3>{item.title}</h3>
+          <p class="note">{item.note}</p>
+          {item.stat && <p class="mono stat">{item.stat}</p>}
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <h2 class="block-title">{t.about.contactTitle}</h2>
+    <p class="contact-intro">{t.about.contactIntro}</p>
+    <ul class="contact-list">
+      {contacts.map((contact) => (
+        <li>
+          <span class="mono contact-label">{contact.label}</span>
+          {contact.href ? (
+            <a class="u-link" href={contact.href} target="_blank" rel="noopener">{contact.value}</a>
+          ) : (
+            <span>{contact.value}</span>
+          )}
+        </li>
+      ))}
+    </ul>
+  </section>
+</div>
+
+<style>
+  .page {
+    padding-block: var(--space-5) 0;
+  }
+  .page-head h1 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+  }
+  .lead {
+    margin-top: var(--space-2);
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    max-width: 46ch;
+  }
+
+  .life-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2);
+    margin-top: var(--space-5);
+  }
+  .life-photos :global(img) {
+    border: 1px solid var(--line);
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
+
+  section {
+    margin-top: var(--space-5);
+  }
+  .block-title {
+    font-size: 1.35rem;
+    border-top: 1px solid var(--line-strong);
+    padding-top: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  .ai-lead {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--ink-soft);
+    max-width: 52ch;
+    margin-bottom: var(--space-3);
+  }
+  .ai-groups {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+  }
+  .ai-group {
+    border-top: 1px solid var(--line);
+    padding-top: var(--space-2);
+  }
+  .group-label {
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-bottom: var(--space-1);
+  }
+  .group-items {
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    line-height: 2;
+  }
+
+  .life-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--space-3) var(--space-2);
+  }
+  .life-card {
+    grid-column: span 2;
+    border-top: 1px solid var(--line);
+    padding-top: var(--space-2);
+  }
+  .life-card:nth-child(4),
+  .life-card:nth-child(5) {
+    grid-column: span 3;
+  }
+  .life-card h3 {
+    font-size: 1.3rem;
+  }
+  .note {
+    margin-top: var(--space-1);
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+  }
+  .stat {
+    margin-top: var(--space-1);
+    color: var(--accent);
+  }
+
+  .contact-intro {
+    color: var(--ink-soft);
+    margin-bottom: var(--space-2);
+  }
+  .contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .contact-list li {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    padding-block: var(--space-1);
+  }
+  .contact-list li + li {
+    border-top: 1px solid var(--line);
+  }
+  .contact-label {
+    color: var(--ink-faint);
+    width: 7rem;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  @media (max-width: 768px) {
+    .ai-groups {
+      grid-template-columns: 1fr;
+    }
+    .life-grid {
+      grid-template-columns: 1fr;
+    }
+    .life-card,
+    .life-card:nth-child(4),
+    .life-card:nth-child(5) {
+      grid-column: auto;
+    }
+    .contact-list li {
+      flex-direction: column;
+      gap: 2px;
+    }
+  }
+</style>

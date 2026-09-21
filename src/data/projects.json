@@ -1,0 +1,72 @@
+[
+  {
+    "name": "local-cms",
+    "repo": "huyikai/local-cms",
+    "url": "https://github.com/huyikai/local-cms",
+    "homepage": "https://huyikai.github.io/local-cms/",
+    "language": "TypeScript",
+    "stars": 173,
+    "featured": true,
+    "desc": {
+      "zh": "本地 Markdown 文件管理系统，用来快速搭建和管理自己的内容。",
+      "en": "A management system for local markdown files, for building and running your own content.",
+      "ja": "ローカルの Markdown ファイルを管理するシステム。自分のコンテンツをすばやく構築・管理するためのもの。"
+    }
+  },
+  {
+    "name": "vitepress-helper",
+    "repo": "huyikai/vitepress-helper",
+    "url": "https://github.com/huyikai/vitepress-helper",
+    "homepage": "https://huyikai.github.io/vitepress-helper/",
+    "language": "Vue",
+    "stars": 30,
+    "featured": false,
+    "desc": {
+      "zh": "一组增强 VitePress 体验的工具，让写作和建站更顺手。",
+      "en": "A toolkit that enhances the VitePress experience for writing and site building.",
+      "ja": "VitePress の体験を向上させるツールキット。執筆とサイト構築をよりスムーズにする。"
+    }
+  },
+  {
+    "name": "tree-conver",
+    "repo": "huyikai/tree-conver",
+    "url": "https://github.com/huyikai/tree-conver",
+    "homepage": "https://huyikai.github.io/tree-conver/",
+    "language": "TypeScript",
+    "stars": 7,
+    "featured": false,
+    "desc": {
+      "zh": "扁平数组与树形结构互相转换的工具库。",
+      "en": "Converts between flat node arrays and tree structures.",
+      "ja": "フラット配列とツリー構造を相互変換するライブラリ。"
+    }
+  },
+  {
+    "name": "echarts-adaptive-plugin",
+    "repo": "huyikai/echarts-adaptive-plugin",
+    "url": "https://github.com/huyikai/echarts-adaptive-plugin",
+    "homepage": "https://huyikai.github.io/echarts-adaptive-plugin/",
+    "language": "TypeScript",
+    "stars": 1,
+    "featured": false,
+    "desc": {
+      "zh": "让 ECharts 图表随容器尺寸变化自动自适应的插件。",
+      "en": "An ECharts plugin that auto-resizes charts to their container.",
+      "ja": "ECharts チャートをコンテナサイズに自動適応させるプラグイン。"
+    }
+  },
+  {
+    "name": "astro-category",
+    "repo": "huyikai/astro-category",
+    "url": "https://github.com/huyikai/astro-category",
+    "homepage": null,
+    "language": "Astro",
+    "stars": 0,
+    "featured": false,
+    "desc": {
+      "zh": "在 Astro 内容集合下实现基于文件目录的分类功能。",
+      "en": "Directory-based categorisation for Astro content collections.",
+      "ja": "Astro コンテンツコレクション向けのディレクトリベース分類。"
+    }
+  }
+]

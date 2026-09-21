@@ -1,0 +1,9 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import AboutView from '@components/views/AboutView.astro';
+import { default as ui } from '../../i18n/ui';
+const t = ui.ja;
+---
+<BaseLayout locale="ja" pathKey="/about/" pageTitle={`${t.about.title} · ${t.siteName}`}>
+  <AboutView locale="ja" />
+</BaseLayout>

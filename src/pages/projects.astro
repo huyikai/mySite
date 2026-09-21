@@ -1,0 +1,9 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ProjectsView from '@components/views/ProjectsView.astro';
+import { default as ui } from '../i18n/ui';
+const t = ui.zh;
+---
+<BaseLayout locale="zh" pathKey="/projects/" pageTitle={`${t.projects.title} · ${t.siteName}`}>
+  <ProjectsView locale="zh" />
+</BaseLayout>

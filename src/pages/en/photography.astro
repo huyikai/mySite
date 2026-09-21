@@ -1,0 +1,9 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PhotographyView from '@components/views/PhotographyView.astro';
+import { default as ui } from '../../i18n/ui';
+const t = ui.en;
+---
+<BaseLayout locale="en" pathKey="/photography/" pageTitle={`${t.photography.title} · ${t.siteName}`}>
+  <PhotographyView locale="en" />
+</BaseLayout>

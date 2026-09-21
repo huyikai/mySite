@@ -1,0 +1,247 @@
+---
+import { Image } from 'astro:assets';
+import { default as ui } from '../../i18n/ui';
+import { localePath, type Locale } from '../../i18n/utils';
+import projects from '../../data/projects.json';
+import avatar from '@assets/avatar.webp';
+import harbor from '@assets/album/harbor.jpg';
+import bird2 from '@assets/album/bird2.jpg';
+import turtle from '@assets/album/turtle.jpg';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = ui[locale];
+const featured = projects.slice(0, 3);
+const strip = [
+  { src: harbor, alt: 'harbor', cls: 'wide' },
+  { src: bird2, alt: 'bird', cls: '' },
+  { src: turtle, alt: 'turtle', cls: '' }
+];
+---
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="mono identity rise">{t.home.identity}</p>
+      <h1 class="hero-name rise rise-1">{t.siteName}</h1>
+      <p class="tagline rise rise-2">{t.home.tagline}</p>
+      <div class="hero-cta rise rise-3">
+        <a class="arrow-link" href={localePath(locale, '/projects/')}>{t.home.viewWork}</a>
+        <a class="arrow-link" href={localePath(locale, '/photography/')}>{t.home.viewPhotos}</a>
+      </div>
+    </div>
+    <div class="hero-portrait rise rise-2" transition:animate="none">
+      <Image
+        src={avatar}
+        alt={t.siteName}
+        widths={[360, 560, 760]}
+        sizes="(max-width: 768px) 45vw, 340px"
+        quality={90}
+        loading="eager"
+      />
+    </div>
+  </div>
+</section>
+
+<section class="home-section">
+  <div class="container">
+    <div class="section-head">
+      <h2>{t.home.photosTitle}</h2>
+      <a class="mono u-link" href={localePath(locale, '/photography/')}>{t.home.more}</a>
+    </div>
+    <div class="photo-strip">
+      {strip.map((item, i) => (
+        <a
+          class={`strip-item ${item.cls}`}
+          href={localePath(locale, '/photography/')}
+          style={`--d: ${(i + 1) * 0.08}s`}
+          tabindex={i === 0 ? 0 : -1}
+          aria-hidden={i === 0 ? 'false' : 'true'}
+        >
+          <Image src={item.src} alt={item.alt} widths={[420, 720, 1100]} sizes="(max-width: 768px) 92vw, 34vw" loading="lazy" />
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="home-section">
+  <div class="container">
+    <div class="section-head">
+      <h2>{t.home.projectsTitle}</h2>
+      <a class="mono u-link" href={localePath(locale, '/projects/')}>{t.home.more}</a>
+    </div>
+    <ul class="project-rows">
+      {featured.map((project) => (
+        <li>
+          <a class="project-row" href={project.url} target="_blank" rel="noopener">
+            <span class="project-name">{project.name}</span>
+            <span class="project-desc">{project.desc[locale]}</span>
+            <span class="mono project-stars">{project.language} · {project.stars} ★</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: calc(100dvh - 64px);
+    display: flex;
+    align-items: center;
+    padding-block: var(--space-5);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: clamp(var(--space-4), 8vw, var(--space-6));
+  }
+  .identity {
+    color: var(--accent);
+    margin-bottom: var(--space-2);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+  }
+  .hero-name {
+    font-size: clamp(3.4rem, 11vw, 7.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+  }
+  :global(html.l10n-en) .hero-name {
+    letter-spacing: -0.015em;
+  }
+  .tagline {
+    margin-top: var(--space-3);
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+    color: var(--ink-soft);
+    max-width: 34ch;
+    text-wrap: balance;
+  }
+  .hero-cta {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+  }
+
+  .hero-portrait {
+    width: clamp(170px, 22vw, 260px);
+    border: 1px solid var(--line-strong);
+    padding: 10px;
+    background: var(--bg-soft);
+  }
+  .hero-portrait :global(img) {
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+
+  .home-section {
+    padding-block: var(--space-5);
+  }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2);
+    border-top: 1px solid var(--line-strong);
+    padding-top: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+  .section-head h2 {
+    font-size: 1.35rem;
+  }
+
+  .photo-strip {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-2);
+  }
+  .strip-item {
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .strip-item :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 4 / 3;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .strip-item.wide :global(img) {
+    aspect-ratio: auto;
+  }
+  .strip-item:hover :global(img) {
+    transform: scale(1.025);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .strip-item :global(img) {
+      transition: none;
+    }
+  }
+
+  .project-rows {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .project-rows li + li {
+    border-top: 1px solid var(--line);
+  }
+  .project-row {
+    display: grid;
+    grid-template-columns: minmax(9rem, auto) 1fr auto;
+    align-items: baseline;
+    gap: var(--space-2);
+    padding-block: var(--space-2);
+    transition: padding-left 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .project-row:hover {
+    padding-left: 0.5rem;
+  }
+  .project-name {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+  }
+  .project-desc {
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .project-stars {
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: auto;
+    }
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-portrait {
+      order: -1;
+      width: 42vw;
+      max-width: 190px;
+      justify-self: start;
+    }
+    .photo-strip {
+      grid-template-columns: 1fr;
+    }
+    .project-row {
+      grid-template-columns: 1fr auto;
+    }
+    .project-desc {
+      grid-column: 1 / -1;
+      white-space: normal;
+    }
+  }
+</style>

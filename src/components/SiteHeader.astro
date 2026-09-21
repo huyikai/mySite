@@ -1,0 +1,206 @@
+---
+import { default as ui } from '../i18n/ui';
+import { localePath, type Locale } from '../i18n/utils';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  locale: Locale;
+  pathKey: string;
+}
+
+const { locale, pathKey } = Astro.props;
+const t = ui[locale];
+
+const navItems = [
+  { href: localePath(locale, '/'), key: 'home' },
+  { href: localePath(locale, '/projects/'), key: 'work' },
+  { href: localePath(locale, '/photography/'), key: 'photography' },
+  { href: localePath(locale, '/about/'), key: 'about' }
+] as const;
+
+const { pathname } = Astro.url;
+const isActive = (href: string) =>
+  href === pathname || (href !== '/' && pathname.startsWith(href)) || (href === '/' && pathname === '/');
+---
+
+<header class="site-header" transition:animate="none">
+  <div class="container header-inner">
+    <a class="wordmark" href={localePath(locale, '/')} title={t.siteName}>huyikai</a>
+
+    <nav class="site-nav" id="site-nav" aria-label="site">
+      {navItems.map((item) => <a href={item.href} class:list={{ active: isActive(item.href) }}>{t.nav[item.key]}</a>)}
+    </nav>
+
+    <div class="header-tools">
+      <nav class="lang-nav" aria-label="language">
+        {(['zh', 'en', 'ja'] as const).map((l) => (
+          <a href={localePath(l, pathKey)} class:list={{ active: l === locale }} lang={l === 'zh' ? 'zh-CN' : l}>
+            {l.toUpperCase()}
+          </a>
+        ))}
+      </nav>
+      <button class="theme-toggle" id="theme-toggle" aria-label="toggle theme">
+        <Icon name="mdi:weather-night" class="icon-moon" />
+        <Icon name="mdi:white-balance-sunny" class="icon-sun" />
+      </button>
+      <button class="menu-toggle" id="menu-toggle" aria-label="menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    height: 64px;
+  }
+  .wordmark {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .site-nav {
+    display: flex;
+    gap: var(--space-3);
+  }
+  .site-nav a {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    transition: color 0.2s ease;
+  }
+  .site-nav a:hover {
+    color: var(--ink);
+  }
+  .site-nav a.active {
+    color: var(--ink);
+    font-weight: 600;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2px;
+  }
+  .header-tools {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  .lang-nav {
+    display: flex;
+    gap: 0.35rem;
+    padding-left: var(--space-2);
+    border-left: 1px solid var(--line);
+  }
+  .lang-nav a {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    padding: 2px 4px;
+  }
+  .lang-nav a.active {
+    color: var(--accent);
+  }
+  .lang-nav a:not(.active):hover {
+    color: var(--ink);
+  }
+  .theme-toggle,
+  .menu-toggle {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .theme-toggle:hover,
+  .menu-toggle:hover {
+    color: var(--ink);
+    border-color: var(--line-strong);
+  }
+  .theme-toggle :global(svg) {
+    width: 16px;
+    height: 16px;
+  }
+  .icon-sun {
+    display: none;
+  }
+  html.dark .icon-sun {
+    display: block;
+  }
+  html.dark .icon-moon {
+    display: none;
+  }
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .menu-toggle span {
+    display: block;
+    width: 14px;
+    height: 1.5px;
+    background: currentColor;
+  }
+
+  @media (max-width: 768px) {
+    .site-nav {
+      display: none;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+    }
+    .site-nav.expanded {
+      display: flex;
+    }
+    .site-nav a {
+      padding: 0.9rem var(--gutter);
+      border-bottom: 1px solid var(--line);
+    }
+    .site-nav a.active {
+      border-bottom-color: var(--accent);
+      padding-bottom: 0.9rem;
+    }
+    .menu-toggle {
+      display: grid;
+    }
+  }
+</style>
+
+<script>
+  function bindHeader() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('site-nav');
+    menuToggle?.addEventListener('click', () => {
+      const expanded = nav?.classList.toggle('expanded');
+      menuToggle.setAttribute('aria-expanded', String(Boolean(expanded)));
+    });
+
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle?.addEventListener('click', () => {
+      const dark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+    });
+  }
+
+  document.addEventListener('astro:page-load', bindHeader);
+</script>

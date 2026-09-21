@@ -1,44 +1,55 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
-import Header from '@components/Header.astro';
-import Footer from '@components/Footer.astro';
+import { ClientRouter } from 'astro:transitions';
+import SiteHeader from '@components/SiteHeader.astro';
+import SiteFooter from '@components/SiteFooter.astro';
+import { default as ui } from '../i18n/ui';
+import { localePath, type Dictionary, type Locale } from '../i18n/utils';
 import '@styles/global.css';
-import { fade } from 'astro:transitions';
-const { pageTitle } = Astro.props;
+
+interface Props {
+  locale: Locale;
+  /** 当前页在三语下的路由 key，如 '/about/'，用于生成 hreflang */
+  pathKey: string;
+  pageTitle?: string;
+}
+
+const { locale, pathKey, pageTitle } = Astro.props;
+const t: Dictionary[Locale] = ui[locale];
+const title = pageTitle ?? t.siteName;
+const siteUrl = Astro.site ?? new URL('https://huyikai.xyz');
+const canonical = new URL(localePath(locale, pathKey), siteUrl).href;
 ---
 
-<html lang="zh-cn">
+<html lang={locale === 'zh' ? 'zh-CN' : locale} class={`l10n-${locale}`}>
   <head>
     <meta charset="utf-8" />
-    <link
-      rel="icon"
-      href="/favicon.ico"
-    />
-    <meta
-      name="viewport"
-      content="width=device-width"
-    />
-    <meta
-      name="generator"
-      content={Astro.generator}
-    />
-    <title>{pageTitle}</title>
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={t.siteDesc} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="zh-CN" href={new URL(localePath('zh', pathKey), siteUrl).href} />
+    <link rel="alternate" hreflang="en" href={new URL(localePath('en', pathKey), siteUrl).href} />
+    <link rel="alternate" hreflang="ja" href={new URL(localePath('ja', pathKey), siteUrl).href} />
+    <link rel="alternate" hreflang="x-default" href={new URL(localePath('zh', pathKey), siteUrl).href} />
 
-    <ViewTransitions />
+    <!-- 主题初始化：内联执行，避免闪白 -->
+    <script is:inline>
+      (function () {
+        const saved = localStorage.getItem('theme');
+        const dark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('dark', dark);
+      })();
+    </script>
+
+    <ClientRouter />
   </head>
   <body>
-    <Header />
-    <main style="width:100%;max-width: 80ch;margin: 0 auto;flex: 1;">
-      {
-        pageTitle !== 'Home' && (
-          <h1 transition:animate={fade({ duration: '0.64s' })}>{pageTitle}</h1>
-        )
-      }
+    <SiteHeader locale={locale} pathKey={pathKey} />
+    <main style="flex: 1;">
       <slot />
     </main>
-    <Footer />
-    <script>
-      import '../scripts/menu.ts';
-    </script>
+    <SiteFooter locale={locale} />
   </body>
 </html>

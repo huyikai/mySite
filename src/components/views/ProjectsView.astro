@@ -1,0 +1,151 @@
+---
+import { default as ui } from '../../i18n/ui';
+import type { Locale } from '../../i18n/utils';
+import projects from '../../data/projects.json';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = ui[locale];
+const [featured, ...rest] = projects;
+---
+
+<div class="container page">
+  <header class="page-head">
+    <h1>{t.projects.title}</h1>
+    <p class="intro">{t.projects.intro}</p>
+  </header>
+
+  <a class="featured" href={featured.url} target="_blank" rel="noopener">
+    <div class="featured-main">
+      <h2 class="featured-name">{featured.name}</h2>
+      <p class="featured-desc">{featured.desc[locale]}</p>
+    </div>
+    <div class="featured-meta">
+      <span class="mono">{featured.language}</span>
+      <span class="mono">{featured.stars} ★</span>
+      <span class="mono links">
+        {featured.homepage && <a class="u-link" href={featured.homepage} target="_blank" rel="noopener">{t.projects.demo}</a>}
+        <a class="u-link" href={featured.url} target="_blank" rel="noopener">{t.projects.source}</a>
+      </span>
+    </div>
+  </a>
+
+  <ul class="project-grid">
+    {rest.map((project) => (
+      <li class="project-cell">
+        <a href={project.url} target="_blank" rel="noopener">
+          <h3>{project.name}</h3>
+        </a>
+        <p>{project.desc[locale]}</p>
+        <div class="cell-meta mono">
+          <span>{project.language}</span>
+          <span>{project.stars} ★</span>
+          {project.homepage && (
+            <a class="u-link" href={project.homepage} target="_blank" rel="noopener">{t.projects.demo}</a>
+          )}
+          <a class="u-link" href={project.url} target="_blank" rel="noopener">{t.projects.source}</a>
+        </div>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .page {
+    padding-block: var(--space-5) 0;
+  }
+  .page-head h1 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+  }
+  .intro {
+    margin-top: var(--space-2);
+    color: var(--ink-soft);
+    max-width: 52ch;
+  }
+
+  .featured {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-3);
+    align-items: end;
+    border-top: 1px solid var(--line-strong);
+    border-bottom: 1px solid var(--line);
+    padding-block: var(--space-4);
+    margin-top: var(--space-5);
+  }
+  .featured:hover .featured-name {
+    color: var(--accent);
+  }
+  .featured-name {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    transition: color 0.2s ease;
+  }
+  .featured-desc {
+    margin-top: var(--space-2);
+    color: var(--ink-soft);
+    max-width: 56ch;
+  }
+  .featured-meta {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+  .featured-meta .links {
+    display: flex;
+    gap: var(--space-2);
+  }
+
+  .project-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4) var(--space-5);
+  }
+  .project-cell {
+    border-top: 1px solid var(--line);
+    padding-top: var(--space-2);
+  }
+  .project-cell:nth-child(even) {
+    transform: translateY(var(--space-3));
+  }
+  .project-cell h3 {
+    font-size: 1.45rem;
+    display: inline-block;
+    transition: color 0.2s ease;
+  }
+  .project-cell a:hover h3 {
+    color: var(--accent);
+  }
+  .project-cell p {
+    margin-top: var(--space-1);
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+  }
+  .cell-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-2);
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 768px) {
+    .featured {
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+    .project-cell:nth-child(even) {
+      transform: none;
+    }
+  }
+</style>

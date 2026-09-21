@@ -1,0 +1,182 @@
+---
+import { Image } from 'astro:assets';
+import { default as ui } from '../../i18n/ui';
+import type { Locale } from '../../i18n/utils';
+import animal1 from '@assets/album/animal1.jpg';
+import turtle from '@assets/album/turtle.jpg';
+import bird2 from '@assets/album/bird2.jpg';
+import scenery1 from '@assets/album/scenery1.jpg';
+import scenery2 from '@assets/album/scenery2.jpg';
+import harbor from '@assets/album/harbor.jpg';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = ui[locale];
+
+const groups = [
+  { title: t.photography.animals, images: [animal1, turtle, bird2] },
+  { title: t.photography.scenery, images: [scenery1, scenery2, harbor] }
+];
+
+const gear = ['Sony A7M3', 'FE 35mm F1.4 GM', 'FE 55mm F1.8 ZA', 'FE 24-105mm F4 G OSS', 'DJI Mavic / Ronin / Pocket'];
+---
+
+<div class="container page">
+  <header class="page-head">
+    <h1>{t.photography.title}</h1>
+    <p class="intro">{t.photography.intro}</p>
+  </header>
+
+  <p class="mono gear">
+    <span class="gear-label">{t.photography.gear}</span>
+    {gear.join(' / ')}
+  </p>
+
+  {groups.map((group) => (
+    <section class="gallery-group">
+      <h2>{group.title}</h2>
+      <div class="masonry">
+        {group.images.map((image) => (
+          <button class="shot" data-lightbox>
+            <Image src={image} alt={group.title} widths={[420, 720, 1100, 1600]} sizes="(max-width: 768px) 92vw, (max-width: 1100px) 46vw, 30vw" loading="lazy" />
+          </button>
+        ))}
+      </div>
+    </section>
+  ))}
+
+  <p class="copyright mono">{t.photography.copyright}</p>
+</div>
+
+<dialog class="lightbox" id="lightbox">
+  <button class="lightbox-close mono" data-lightbox-close>{t.photography.close} ×</button>
+  <img src="" alt="" />
+</dialog>
+
+<style>
+  .page {
+    padding-block: var(--space-5) 0;
+  }
+  .page-head h1 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+  }
+  .intro {
+    margin-top: var(--space-2);
+    color: var(--ink-soft);
+  }
+  .gear {
+    margin-top: var(--space-4);
+    color: var(--ink-faint);
+  }
+  .gear-label {
+    color: var(--accent);
+    margin-right: var(--space-2);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  .gallery-group {
+    margin-top: var(--space-5);
+  }
+  .gallery-group h2 {
+    font-size: 1.35rem;
+    border-top: 1px solid var(--line-strong);
+    padding-top: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+  .masonry {
+    columns: 3 260px;
+    column-gap: var(--space-2);
+  }
+  .shot {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0 0 var(--space-2);
+    border: 1px solid var(--line);
+    background: var(--bg-soft);
+    cursor: zoom-in;
+    overflow: hidden;
+  }
+  .shot:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .shot :global(img) {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .shot:hover :global(img) {
+    transform: scale(1.02);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .shot :global(img) {
+      transition: none;
+    }
+  }
+
+  .copyright {
+    margin-top: var(--space-5);
+    color: var(--ink-faint);
+  }
+
+  .lightbox {
+    max-width: min(92vw, 1200px);
+    max-height: 88dvh;
+    padding: 0;
+    border: 1px solid var(--line-strong);
+    border-radius: 0;
+    background: var(--bg);
+  }
+  .lightbox::backdrop {
+    background: rgba(10, 10, 9, 0.82);
+    backdrop-filter: blur(3px);
+  }
+  .lightbox img {
+    max-width: 100%;
+    max-height: 88dvh;
+    object-fit: contain;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateY(-100%);
+    padding: 4px 0;
+    background: none;
+    border: none;
+    color: #d9d7d1;
+    cursor: pointer;
+  }
+  .lightbox-close:hover {
+    color: var(--accent);
+  }
+</style>
+
+<script>
+  function bindLightbox() {
+    const dialog = document.getElementById('lightbox') as HTMLDialogElement | null;
+    if (!dialog) return;
+
+    const stage = dialog.querySelector('img');
+
+    document.querySelectorAll('[data-lightbox]').forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const img = trigger.querySelector('img');
+        if (!img || !stage) return;
+        stage.src = img.currentSrc || img.src;
+        stage.alt = img.alt;
+        dialog.showModal();
+      });
+    });
+
+    dialog.addEventListener('click', (event) => {
+      // 点击图片以外的区域即关闭
+      if (event.target === dialog) dialog.close();
+    });
+  }
+
+  document.addEventListener('astro:page-load', bindLightbox);
+</script>

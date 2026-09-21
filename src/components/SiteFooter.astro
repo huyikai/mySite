@@ -1,0 +1,43 @@
+---
+import { default as ui } from '../i18n/ui';
+import type { Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = ui[locale];
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="mono">© {year} huyikai · {t.footer.rights}</p>
+    <nav class="footer-links" aria-label="footer">
+      <a class="mono u-link" href="https://github.com/huyikai" target="_blank" rel="noopener">GitHub</a>
+      <a class="mono u-link" href="mailto:hyk_tiger@foxmail.com">Email</a>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--line);
+    margin-top: var(--space-6);
+  }
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding-block: var(--space-3);
+  }
+  .footer-links {
+    display: flex;
+    gap: var(--space-2);
+  }
+  p {
+    color: var(--ink-faint);
+  }
+</style>
