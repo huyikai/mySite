@@ -21,5 +21,10 @@
     "git-cz": "^4.9.0",
     "sharp": "^0.35.4",
     "typescript": "^6.0.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "yargs": "18.1.0"
+    }
   }
 }
